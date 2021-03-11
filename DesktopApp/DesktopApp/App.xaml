@@ -4,6 +4,62 @@
              xmlns:local="clr-namespace:DesktopApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!--#region Colors-->
+        
+        <!--#region Primary colors-->
+        <SolidColorBrush Color="#196AA6" x:Key="PColor_MainBlue"></SolidColorBrush>
+        <SolidColorBrush Color="#F79420" x:Key="PColor_MainOrange"></SolidColorBrush>
+        <!--#endregion-->
+        
+        <!--#region Secondary colors-->
+        <SolidColorBrush Color="#064B66" x:Key="SColor_DarkBlue"></SolidColorBrush>
+        <SolidColorBrush Color="#00A0BB" x:Key="SColor_LightBlue"></SolidColorBrush>
+        <SolidColorBrush Color="#0D4F4C" x:Key="SColor_DarkGreen"></SolidColorBrush>
+        <SolidColorBrush Color="#132B4F" x:Key="SColor_DarkPurple"></SolidColorBrush>
+        <SolidColorBrush Color="#C2912E" x:Key="SColor_DarkGold"></SolidColorBrush>
+        <SolidColorBrush Color="#FAC826" x:Key="SColor_MainGold"></SolidColorBrush>
+        <SolidColorBrush Color="#EDD688" x:Key="SColor_LightGold"></SolidColorBrush>
+        <SolidColorBrush Color="#FFFACB" x:Key="SColor_MainYellow"></SolidColorBrush>
+        <!--#endregion-->
+        
+        <!--#endregion-->
+
+        <!--#region Fonts-->
+
+        <!--#region Primary fonts-->
+
+        <FontFamily x:Key="PFont_Title">Classica One</FontFamily>
+
+        <!--#endregion-->
+
+        <!--#region Alternative fonts-->
+
+        <FontFamily x:Key="PFont_TCMT">Tw Cen MT</FontFamily>
+        <FontFamily x:Key="PFont_TCMTCondensed">Tw Cen MT Condensed</FontFamily>
+        <FontFamily x:Key="PFont_TCMTCondensedExtraBold">Tw Cen MT Condensed Extra Bold</FontFamily>
+
+        <!--#endregion-->
+        
+        <!--#region Secondary fonts-->
+
+        <FontFamily x:Key="PFont_Verdana">Verdana</FontFamily>
+
+        <!--#endregion-->
+
+        <!--#endregion-->
+
+        <!--#region TextBlocks-->
+        
+        
+        
+        <!--#endregion-->
+
+        <!--#region Buttons-->
+
+
+
+        <!--#endregion-->
+
     </Application.Resources>
 </Application>

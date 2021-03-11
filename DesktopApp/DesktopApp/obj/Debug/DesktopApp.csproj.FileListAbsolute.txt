@@ -19,3 +19,6 @@ F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileI
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
+F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\AdditionalWindows\CrashReportWindow.g.cs
+F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\App.baml
+F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\AdditionalWindows\CrashReportWindow.baml
