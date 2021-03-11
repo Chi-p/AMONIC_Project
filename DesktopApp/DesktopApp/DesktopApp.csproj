@@ -140,6 +140,21 @@
     <None Include="Entities\ModelDB.edmx.diagram">
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </None>
+    <Resource Include="Assets\Fonts\TCBI____.TTF" />
+    <Resource Include="Assets\Fonts\TCB_____.TTF" />
+    <Resource Include="Assets\Fonts\TCCB____.TTF" />
+    <Resource Include="Assets\Fonts\TCCEB.TTF" />
+    <Resource Include="Assets\Fonts\TCCM____.TTF" />
+    <Resource Include="Assets\Fonts\TCMI____.TTF" />
+    <Resource Include="Assets\Fonts\TCM_____.TTF" />
+    <Resource Include="Assets\Fonts\texgyreadventor-bold.otf" />
+    <Resource Include="Assets\Fonts\texgyreadventor-bolditalic.otf" />
+    <Resource Include="Assets\Fonts\texgyreadventor-italic.otf" />
+    <Resource Include="Assets\Fonts\texgyreadventor-regular.otf" />
+    <Resource Include="Assets\Fonts\verdana.ttf" />
+    <Resource Include="Assets\Fonts\verdanab.ttf" />
+    <Resource Include="Assets\Fonts\verdanai.ttf" />
+    <Resource Include="Assets\Fonts\verdanaz.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,6 +165,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_mono%402x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_mono%404x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_mono.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_2_colors%404x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_2_colors.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_2_colors_%402x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_2_colors_with_bg%402x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_2_colors_with_bg%404x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_2_colors_with_bg.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_black%402x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_black%404x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_black.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_color%402x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_color%404x.png" />
+    <Resource Include="Assets\Pictures\Logos\WSC2017_TP09_color.png" />
+    <Resource Include="Assets\Pictures\Logos\white%402x.png" />
+    <Resource Include="Assets\Pictures\Logos\white%404x.png" />
+    <Resource Include="Assets\Pictures\Logos\white.png" />
+    <Resource Include="Assets\Pictures\WSC2017_TP09_Airplane-Amonic-Single.png" />
+    <Resource Include="Assets\Pictures\WSC2017_TP09_Airplane-Amonic.png" />
     <Content Include="Entities\ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelDB.Context.cs</LastGenOutput>

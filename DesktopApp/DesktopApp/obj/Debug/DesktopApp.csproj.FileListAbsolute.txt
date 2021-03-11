@@ -5,13 +5,15 @@ F:\AMONIC_Project\DesktopApp\DesktopApp\bin\Debug\EntityFramework.dll
 F:\AMONIC_Project\DesktopApp\DesktopApp\bin\Debug\EntityFramework.SqlServer.dll
 F:\AMONIC_Project\DesktopApp\DesktopApp\bin\Debug\EntityFramework.xml
 F:\AMONIC_Project\DesktopApp\DesktopApp\bin\Debug\EntityFramework.SqlServer.xml
-F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\MainWindow.g.cs
+F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\AdditionalWindows\CrashReportWindow.g.cs
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\App.g.cs
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp_Content.g.cs
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.cache
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp_MarkupCompile.lref
+F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\App.baml
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\MainWindow.baml
+F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\AdditionalWindows\CrashReportWindow.baml
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.g.resources
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.Properties.Resources.resources
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.GenerateResource.cache
@@ -19,6 +21,3 @@ F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileI
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
-F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\AdditionalWindows\CrashReportWindow.g.cs
-F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\App.baml
-F:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\AdditionalWindows\CrashReportWindow.baml

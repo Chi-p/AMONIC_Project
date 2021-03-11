@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DesktopApp"
              StartupUri="MainWindow.xaml">
+    
     <Application.Resources>
-
+   
         <!--#region Colors-->
         
         <!--#region Primary colors-->
@@ -29,35 +30,71 @@
 
         <!--#region Primary fonts-->
 
-        <FontFamily x:Key="PFont_Title">Classica One</FontFamily>
+        <FontFamily x:Key="PFont_TeXGyreAdventor">/DesktopApp;component/Assets/Fonts/#TeX Gyre Adventor</FontFamily>
 
         <!--#endregion-->
 
         <!--#region Alternative fonts-->
 
-        <FontFamily x:Key="PFont_TCMT">Tw Cen MT</FontFamily>
-        <FontFamily x:Key="PFont_TCMTCondensed">Tw Cen MT Condensed</FontFamily>
-        <FontFamily x:Key="PFont_TCMTCondensedExtraBold">Tw Cen MT Condensed Extra Bold</FontFamily>
+        <FontFamily x:Key="AFont_TCMT">Tw Cen MT</FontFamily>
+        <FontFamily x:Key="AFont_TCMTCondensed">Tw Cen MT Condensed</FontFamily>
+        <FontFamily x:Key="AFont_TCMTCondensedExtraBold">Tw Cen MT Condensed Extra Bold</FontFamily>
 
         <!--#endregion-->
         
         <!--#region Secondary fonts-->
 
-        <FontFamily x:Key="PFont_Verdana">Verdana</FontFamily>
+        <FontFamily x:Key="SFont_Verdana">Verdana</FontFamily>
 
         <!--#endregion-->
 
         <!--#endregion-->
 
         <!--#region TextBlocks-->
-        
-        
+
+        <Style TargetType="TextBlock" x:Key="TbkBody">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="{StaticResource PFont_TeXGyreAdventor}"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
         
         <!--#endregion-->
 
         <!--#region Buttons-->
 
 
+
+        <!--#endregion-->
+        
+        <!--#region DataGrids-->
+
+        <Style TargetType="DataGrid">
+            <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+            <Setter Property="CanUserAddRows" Value="False"></Setter>
+            <Setter Property="CanUserDeleteRows" Value="False"></Setter>
+            <Setter Property="IsReadOnly" Value="True"></Setter>
+            <Setter Property="SelectionMode" Value="Single"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="HeadersVisibility" Value="Column"></Setter>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="FontFamily" Value="{StaticResource PFont_TeXGyreAdventor}"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="Padding" Value="5 1 0 1"></Setter>
+            <Setter Property="BorderThickness" Value="0 0 1 1"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="FontFamily" Value="{StaticResource PFont_TeXGyreAdventor}"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+        </Style>
 
         <!--#endregion-->
 

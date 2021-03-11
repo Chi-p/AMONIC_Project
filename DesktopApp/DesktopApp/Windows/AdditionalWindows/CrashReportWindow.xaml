@@ -6,4 +6,8 @@
         xmlns:local="clr-namespace:DesktopApp.Windows.AdditionalWindows"
         mc:Ignorable="d"
         Title="No logout detected" Height="450" Width="600" WindowStyle="ToolWindow">
+
+    <Grid>
+        <TextBlock Style="{StaticResource TbkBody}">asdasd</TextBlock>
+    </Grid>
 </Window>
