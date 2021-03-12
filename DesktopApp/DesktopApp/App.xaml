@@ -463,14 +463,15 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="{StaticResource SColor_MainYellow}"/>
-                                <Setter Property="Foreground" Value="Black"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" Value="{StaticResource SColor_MainGold}"/>
                                 <Setter Property="Foreground" Value="Black"/>
                             </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" Value="{StaticResource SColor_MainYellow}"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" Value="{StaticResource SColor_DarkGold}"></Setter>
                                 <Setter Property="Opacity" Value="0.75"/>
                             </Trigger>
                         </ControlTemplate.Triggers>

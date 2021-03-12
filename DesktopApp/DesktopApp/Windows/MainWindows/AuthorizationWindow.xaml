@@ -5,15 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp.Windows.MainWindows"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Login" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image Source="/DesktopApp;component/Assets/Pictures/Logos/WSC2017_TP09_color@4x.png" 
                    VerticalAlignment="Top" Margin="40" Width="500"></Image>
-
-        <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Margin="32,27,0,0">
-            <TextBlock Width="100" TextAlignment="Right" Margin="5 10" Style="{StaticResource TbkBody}">Username:</TextBlock>
-            <TextBlock Width="100" TextAlignment="Right" Margin="5 10" Style="{StaticResource TbkBody}">Password:</TextBlock>
-        </StackPanel>-->
 
         <Grid VerticalAlignment="Bottom" Margin="0 10">
             <Grid.RowDefinitions>
@@ -22,6 +17,8 @@
             </Grid.RowDefinitions>
 
             <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <TextBlock Style="{StaticResource TbkBody}" Foreground="Red" HorizontalAlignment="Right" 
+                           Margin="30 5" Name="TbkLockMessage" Visibility="Hidden"></TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <TextBlock Width="133" TextAlignment="Right" Style="{StaticResource TbkBody}">Username:</TextBlock>
                     <TextBox Width="500" Margin="5 10" Name="TbxUsername"></TextBox>
@@ -32,8 +29,8 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1">
-                <Button Margin="20" Name="BtnLogin" Click="BtnLogin_Click">Login</Button>
-                <Button Margin="20" Name="BtnExit" Click="BtnExit_Click">Exit</Button>
+                <Button Margin="20" Name="BtnLogin" Click="BtnLogin_Click" IsDefault="True">Login</Button>
+                <Button Margin="20" Name="BtnExit" Click="BtnExit_Click" IsCancel="True">Exit</Button>
             </StackPanel>
         </Grid>
 

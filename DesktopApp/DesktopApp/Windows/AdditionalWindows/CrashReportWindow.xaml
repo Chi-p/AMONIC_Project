@@ -7,7 +7,26 @@
         mc:Ignorable="d"
         Title="No logout detected" Height="450" Width="600" ResizeMode="NoResize">
 
-    <Grid>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel>
+            <TextBlock Style="{StaticResource TbkBody}" Margin="5 5 5 20" TextWrapping="Wrap"
+                       Text="{Binding Date, StringFormat=No logout detected for your last login on {0:MM/dd/yyyy} at {0:hh:mm}}"></TextBlock>
+            <TextBlock Style="{StaticResource TbkBody}">Reason:</TextBlock>
+        </StackPanel>
+        
+        <TextBox Grid.Row="1" Width="auto" VerticalAlignment="Stretch"></TextBox>
 
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <RadioButton>Software Crash</RadioButton>
+            <RadioButton>System Crash</RadioButton>
+        </StackPanel>
+
+        <Button Grid.Row="2" HorizontalAlignment="Right">Confirm                                                                 </Button>
     </Grid>
 </Window>
