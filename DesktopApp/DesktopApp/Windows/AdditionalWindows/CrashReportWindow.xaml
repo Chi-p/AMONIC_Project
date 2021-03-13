@@ -19,14 +19,15 @@
                        Text="{Binding Date, StringFormat=No logout detected for your last login on {0:MM/dd/yyyy} at {0:hh:mm}}"></TextBlock>
             <TextBlock Style="{StaticResource TbkBody}">Reason:</TextBlock>
         </StackPanel>
-        
-        <TextBox Grid.Row="1" Width="auto" VerticalAlignment="Stretch"></TextBox>
+
+        <TextBox Grid.Row="1" Width="auto" VerticalAlignment="Stretch" TextWrapping="Wrap" 
+                 VerticalScrollBarVisibility="Visible" Name="TbxReason"></TextBox>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <RadioButton>Software Crash</RadioButton>
-            <RadioButton>System Crash</RadioButton>
+            <RadioButton Name="RBtnSoftwareCrash">Software Crash</RadioButton>
+            <RadioButton Name="RBtnSystemCrash">System Crash</RadioButton>
         </StackPanel>
 
-        <Button Grid.Row="2" HorizontalAlignment="Right">Confirm                                                                 </Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Name="BtnConfirm" Click="BtnConfirm_Click">Confirm</Button>
     </Grid>
 </Window>

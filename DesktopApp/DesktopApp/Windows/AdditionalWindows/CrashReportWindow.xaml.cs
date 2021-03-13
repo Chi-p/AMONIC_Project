@@ -24,5 +24,10 @@ namespace DesktopApp.Windows.AdditionalWindows
         {
             InitializeComponent();
         }
+
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
