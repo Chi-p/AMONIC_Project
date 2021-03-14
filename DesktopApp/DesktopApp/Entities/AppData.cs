@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,8 @@ namespace DesktopApp.Entities
         public static AMONICEntities Context = new AMONICEntities();
         public static Frame MainFrame;
         public static Users CurrentUser;
+
+        public static MessagesClass Message = new MessagesClass();
+        public static AuthorizationClass Authorization = new AuthorizationClass();
     }
 }

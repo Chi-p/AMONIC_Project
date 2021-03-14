@@ -1,4 +1,6 @@
-﻿using DesktopApp.Entities;
+﻿using DesktopApp.Classes;
+using DesktopApp.Entities;
+using DesktopApp.Windows.MainWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +22,51 @@ namespace DesktopApp.Windows.AdditionalWindows
     /// </summary>
     public partial class CrashReportWindow : Window
     {
-        public CrashReportWindow()
+        private LoginHistories _loginHistory;
+
+        public CrashReportWindow(LoginHistories loginHistory)
         {
             InitializeComponent();
+            _loginHistory = loginHistory;
+            DataContext = _loginHistory;
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (RBtnSoftwareCrash.IsChecked == false && RBtnSystemCrash.IsChecked == false && string.IsNullOrWhiteSpace(TbxReason.Text))
+                {
+                    AppData.Message.MessageError("Enter data.");
+                }
+                else if (RBtnSoftwareCrash.IsChecked == false && RBtnSystemCrash.IsChecked == false)
+                {
+                    AppData.Message.MessageError("Select the type of crash.");
+                }
+                else if (string.IsNullOrWhiteSpace(TbxReason.Text))
+                {
+                    AppData.Message.MessageError("Describe the reason of the crash.");
+                }
+                else
+                {
+                    _loginHistory.CrashTypeID = RBtnSoftwareCrash.IsChecked == true ? 1 : 2;
+                    AppData.Authorization.CreateLoginHistory();
 
+                    AppData.Message.MessageInfo("The reason for the crash was successfully saved. Thank you for your help!");
+
+                    new MainWindow().Show();
+                    Close();
+                }
+            }
+            catch (Exception)
+            {
+                AppData.Message.MessageError("There is no connection to the database. Please contact your system administrator.");
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
         }
     }
 }

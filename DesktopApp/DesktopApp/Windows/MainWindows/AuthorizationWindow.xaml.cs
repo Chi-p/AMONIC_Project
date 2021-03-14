@@ -1,5 +1,6 @@
 ﻿using DesktopApp.Classes;
 using DesktopApp.Entities;
+using DesktopApp.Windows.AdditionalWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,6 @@ namespace DesktopApp.Windows.MainWindows
     /// </summary>
     public partial class AuthorizationWindow : Window
     {
-        private readonly MessagesClass Message = new MessagesClass();
         private int _attemptsCount = 3;
         private int _lockTime = 10;
         private readonly DispatcherTimer LockTimer = new DispatcherTimer();
@@ -55,27 +55,27 @@ namespace DesktopApp.Windows.MainWindows
 
                 if (string.IsNullOrWhiteSpace(TbxUsername.Text) && string.IsNullOrWhiteSpace(PbxPassword.Password))
                 {
-                    Message.MessageError("Enter data.");
+                    AppData.Message.MessageError("Enter data.");
                 }
                 else if (string.IsNullOrWhiteSpace(TbxUsername.Text))
                 {
-                    Message.MessageError("Enter username.");
+                    AppData.Message.MessageError("Enter username.");
                     TbxUsername.Focus();
                 }
                 else if (string.IsNullOrWhiteSpace(PbxPassword.Password))
                 {
-                    Message.MessageError("Enter password.");
+                    AppData.Message.MessageError("Enter password.");
                     PbxPassword.Focus();
                 }
                 else if (AppData.Context.Users.ToList().FirstOrDefault(i => i.Email == TbxUsername.Text) == null)
                 {
-                    Message.MessageError("The user doesn't exist. Enter a different username.");
+                    AppData.Message.MessageError("The user doesn't exist. Enter a different username.");
                     TbxUsername.Focus();
                 }
                 else if (AppData.Context.Users.ToList().FirstOrDefault(i =>
                 i.Email == TbxUsername.Text && i.Password == PbxPassword.Password) == null)
                 {
-                    Message.MessageError($"The password you entered is incorrect. Attempts left: {--_attemptsCount}");
+                    AppData.Message.MessageError($"The password you entered is incorrect. Attempts left: {--_attemptsCount}");
                     PbxPassword.Focus();
 
                     if (_attemptsCount <= 0)
@@ -89,7 +89,7 @@ namespace DesktopApp.Windows.MainWindows
                 else if (AppData.Context.Users.ToList().FirstOrDefault(i =>
                 i.Email == TbxUsername.Text && i.Password == PbxPassword.Password).Active == null)
                 {
-                    Message.MessageError("You have been disconnected from the system, please contact your administrator.");
+                    AppData.Message.MessageError("You have been disconnected from the system, please contact your administrator.");
                 }
                 else
                 {
@@ -97,6 +97,29 @@ namespace DesktopApp.Windows.MainWindows
                     i.Email == TbxUsername.Text && i.Password == PbxPassword.Password);
 
                     Application.Current.MainWindow.Hide();
+
+
+                    if (AppData.Context.LoginHistories.ToList()
+                        .Where(i => i.Users == AppData.CurrentUser).Count() != 0)
+                    {
+                        var lastHistory = AppData.Context.LoginHistories.ToList().Where(
+                       i => i.Users == AppData.CurrentUser).Last();
+
+                        if (lastHistory.LogoutDateTime == null)
+                        {
+                            new CrashReportWindow(lastHistory).Show();
+                            return;
+                        }
+                        else
+                        {
+                            AppData.Authorization.CreateLoginHistory();
+                        }
+                    }
+                    else
+                    {
+                        AppData.Authorization.CreateLoginHistory();
+                    }
+
                     switch (AppData.CurrentUser.Roles.Title)
                     {
                         case "Administrator":
@@ -106,16 +129,18 @@ namespace DesktopApp.Windows.MainWindows
                             new MainWindow().Show();
                             break;
                         default:
-                            Message.MessageInfo("The functionality for this role has not yet been implemented.");
+                            AppData.Message.MessageInfo("The functionality for this role has not yet been implemented.");
                             break;
                     }
                 }
             }
             catch (Exception)
             {
-                Message.MessageError("There is no connection to the database. Please contact your system administrator.");
+                AppData.Message.MessageError("There is no connection to the database. Please contact your system administrator.");
             }
         }
+
+
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {

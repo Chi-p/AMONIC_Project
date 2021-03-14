@@ -26,6 +26,8 @@ namespace DesktopApp.Entities
         }
     
         public virtual DbSet<Countries> Countries { get; set; }
+        public virtual DbSet<CrashTypes> CrashTypes { get; set; }
+        public virtual DbSet<LoginHistories> LoginHistories { get; set; }
         public virtual DbSet<Offices> Offices { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

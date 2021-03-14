@@ -7,6 +7,24 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="CrashTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginHistories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="LoginDateTime" Type="datetime" Nullable="false" />
+    <Property Name="LogoutDateTime" Type="datetime" />
+    <Property Name="CrashTypeID" Type="int" />
+    <Property Name="CrashReason" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="Offices">
     <Key>
       <PropertyRef Name="ID" />
@@ -48,6 +66,30 @@
     <Property Name="Birthdate" Type="date" />
     <Property Name="Active" Type="bit" />
   </EntityType>
+  <Association Name="FK_LoginHistories_CrashTypes">
+    <End Role="CrashTypes" Type="Self.CrashTypes" Multiplicity="0..1" />
+    <End Role="LoginHistories" Type="Self.LoginHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrashTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoginHistories">
+        <PropertyRef Name="CrashTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginHistories_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="LoginHistories" Type="Self.LoginHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoginHistories">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Office_Country">
     <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
     <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
@@ -86,10 +128,20 @@
   </Association>
   <EntityContainer Name="AMONICModelStoreContainer">
     <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CrashTypes" EntityType="Self.CrashTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginHistories" EntityType="Self.LoginHistories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Offices" EntityType="Self.Offices" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LoginHistories_CrashTypes" Association="Self.FK_LoginHistories_CrashTypes">
+      <End Role="CrashTypes" EntitySet="CrashTypes" />
+      <End Role="LoginHistories" EntitySet="LoginHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistories_Users" Association="Self.FK_LoginHistories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginHistories" EntitySet="LoginHistories" />
+    </AssociationSet>
     <AssociationSet Name="FK_Office_Country" Association="Self.FK_Office_Country">
       <End Role="Countries" EntitySet="Countries" />
       <End Role="Offices" EntitySet="Offices" />

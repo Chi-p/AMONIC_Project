@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp.Windows.AdditionalWindows"
         mc:Ignorable="d"
-        Title="No logout detected" Height="450" Width="600" ResizeMode="NoResize">
+        Title="No logout detected" Height="450" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
@@ -16,12 +16,12 @@
         
         <StackPanel>
             <TextBlock Style="{StaticResource TbkBody}" Margin="5 5 5 20" TextWrapping="Wrap"
-                       Text="{Binding Date, StringFormat=No logout detected for your last login on {0:MM/dd/yyyy} at {0:hh:mm}}"></TextBlock>
+                       Text="{Binding LoginDateTime, StringFormat=No logout detected for your last login on {0:MM/dd/yyyy} at {0:hh:mm}}"></TextBlock>
             <TextBlock Style="{StaticResource TbkBody}">Reason:</TextBlock>
         </StackPanel>
 
         <TextBox Grid.Row="1" Width="auto" VerticalAlignment="Stretch" TextWrapping="Wrap" 
-                 VerticalScrollBarVisibility="Visible" Name="TbxReason"></TextBox>
+                 VerticalScrollBarVisibility="Visible" Name="TbxReason" Text="{Binding CrashReason}"></TextBox>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <RadioButton Name="RBtnSoftwareCrash">Software Crash</RadioButton>

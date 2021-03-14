@@ -5,14 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a35857c15bde46fcbf1b1fb57c63f7b1" Name="Diagram1">
-        <EntityTypeShape EntityType="AMONICModel.Countries" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Offices" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Roles" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Users" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="AMONICModel.FK_Office_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Users_Offices" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Users_Roles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AMONICModel.Countries" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AMONICModel.CrashTypes" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="AMONICModel.LoginHistories" Width="1.5" PointX="7.5" PointY="1.375" />
+        <EntityTypeShape EntityType="AMONICModel.Offices" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="AMONICModel.Roles" Width="1.5" PointX="3" PointY="5.875" />
+        <EntityTypeShape EntityType="AMONICModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="AMONICModel.Users" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="AMONICModel.FK_Office_Country" />
+        <AssociationConnector Association="AMONICModel.FK_LoginHistories_CrashTypes" />
+        <AssociationConnector Association="AMONICModel.FK_LoginHistories_Users" />
+        <AssociationConnector Association="AMONICModel.FK_Users_Offices" />
+        <AssociationConnector Association="AMONICModel.FK_Users_Roles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

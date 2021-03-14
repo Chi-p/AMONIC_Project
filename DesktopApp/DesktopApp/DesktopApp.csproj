@@ -68,7 +68,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\AuthorizationClass.cs" />
     <Compile Include="Classes\MessagesClass.cs" />
+    <Compile Include="Entities\CrashTypes.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LoginHistories.cs">
+      <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AdditionalWindows\CrashReportWindow.xaml.cs">
       <DependentUpon>CrashReportWindow.xaml</DependentUpon>
     </Compile>

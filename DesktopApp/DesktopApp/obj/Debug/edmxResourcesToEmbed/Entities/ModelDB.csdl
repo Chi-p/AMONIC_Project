@@ -1,12 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AMONICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AMONICEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Countries" EntityType="AMONICModel.Countries" />
+    <EntitySet Name="CrashTypes" EntityType="AMONICModel.CrashTypes" />
+    <EntitySet Name="LoginHistories" EntityType="AMONICModel.LoginHistories" />
+    <EntitySet Name="Offices" EntityType="AMONICModel.Offices" />
+    <EntitySet Name="Roles" EntityType="AMONICModel.Roles" />
+    <EntitySet Name="sysdiagrams" EntityType="AMONICModel.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="AMONICModel.Users" />
+    <AssociationSet Name="FK_Office_Country" Association="AMONICModel.FK_Office_Country">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Offices" EntitySet="Offices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistories_CrashTypes" Association="AMONICModel.FK_LoginHistories_CrashTypes">
+      <End Role="CrashTypes" EntitySet="CrashTypes" />
+      <End Role="LoginHistories" EntitySet="LoginHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistories_Users" Association="AMONICModel.FK_LoginHistories_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LoginHistories" EntitySet="LoginHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Offices" Association="AMONICModel.FK_Users_Offices">
+      <End Role="Offices" EntitySet="Offices" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="AMONICModel.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Countries">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Offices" Relationship="Self.FK_Office_Country" FromRole="Countries" ToRole="Offices" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Offices" Relationship="AMONICModel.FK_Office_Country" FromRole="Countries" ToRole="Offices" />
+  </EntityType>
+  <EntityType Name="CrashTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoginHistories" Relationship="AMONICModel.FK_LoginHistories_CrashTypes" FromRole="CrashTypes" ToRole="LoginHistories" />
+  </EntityType>
+  <EntityType Name="LoginHistories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="LoginDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LogoutDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CrashTypeID" Type="Int32" />
+    <Property Name="CrashReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CrashTypes" Relationship="AMONICModel.FK_LoginHistories_CrashTypes" FromRole="LoginHistories" ToRole="CrashTypes" />
+    <NavigationProperty Name="Users" Relationship="AMONICModel.FK_LoginHistories_Users" FromRole="LoginHistories" ToRole="Users" />
   </EntityType>
   <EntityType Name="Offices">
     <Key>
@@ -14,25 +64,25 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CountryID" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Contact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Countries" Relationship="Self.FK_Office_Country" FromRole="Offices" ToRole="Countries" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Offices" FromRole="Offices" ToRole="Users" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Countries" Relationship="AMONICModel.FK_Office_Country" FromRole="Offices" ToRole="Countries" />
+    <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Users_Offices" FromRole="Offices" ToRole="Users" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
@@ -44,19 +94,20 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="RoleID" Type="Int32" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="OfficeID" Type="Int32" />
     <Property Name="Birthdate" Type="DateTime" Precision="0" />
     <Property Name="Active" Type="Boolean" />
-    <NavigationProperty Name="Offices" Relationship="Self.FK_Users_Offices" FromRole="Users" ToRole="Offices" />
-    <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+    <NavigationProperty Name="LoginHistories" Relationship="AMONICModel.FK_LoginHistories_Users" FromRole="Users" ToRole="LoginHistories" />
+    <NavigationProperty Name="Offices" Relationship="AMONICModel.FK_Users_Offices" FromRole="Users" ToRole="Offices" />
+    <NavigationProperty Name="Roles" Relationship="AMONICModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
   </EntityType>
   <Association Name="FK_Office_Country">
-    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
-    <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+    <End Type="AMONICModel.Countries" Role="Countries" Multiplicity="1" />
+    <End Type="AMONICModel.Offices" Role="Offices" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Countries">
         <PropertyRef Name="ID" />
@@ -66,9 +117,33 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LoginHistories_CrashTypes">
+    <End Type="AMONICModel.CrashTypes" Role="CrashTypes" Multiplicity="0..1" />
+    <End Type="AMONICModel.LoginHistories" Role="LoginHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CrashTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoginHistories">
+        <PropertyRef Name="CrashTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginHistories_Users">
+    <End Type="AMONICModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="AMONICModel.LoginHistories" Role="LoginHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoginHistories">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Users_Offices">
-    <End Role="Offices" Type="Self.Offices" Multiplicity="0..1" />
-    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <End Type="AMONICModel.Offices" Role="Offices" Multiplicity="0..1" />
+    <End Type="AMONICModel.Users" Role="Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Offices">
         <PropertyRef Name="ID" />
@@ -79,8 +154,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Users_Roles">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <End Type="AMONICModel.Roles" Role="Roles" Multiplicity="1" />
+    <End Type="AMONICModel.Users" Role="Users" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="ID" />
@@ -90,23 +165,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="AMONICEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Countries" EntityType="Self.Countries" />
-    <EntitySet Name="Offices" EntityType="Self.Offices" />
-    <EntitySet Name="Roles" EntityType="Self.Roles" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
-    <AssociationSet Name="FK_Office_Country" Association="Self.FK_Office_Country">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="Offices" EntitySet="Offices" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_Offices" Association="Self.FK_Users_Offices">
-      <End Role="Offices" EntitySet="Offices" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

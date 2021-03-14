@@ -23,5 +23,10 @@ namespace DesktopApp.Classes
         {
             return MessageBox.Show(message, "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+
+        public MessageBoxResult MessageQuestion(string message)
+        {
+            return MessageBox.Show(message, "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
     }
 }
