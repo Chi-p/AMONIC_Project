@@ -76,12 +76,34 @@
     <Compile Include="Entities\LoginHistories.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\UsersPartial.cs" />
+    <Compile Include="Pages\AdminPages\AdminMenuPage.xaml.cs">
+      <DependentUpon>AdminMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AdditionalWindows\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AdditionalWindows\CrashReportWindow.xaml.cs">
       <DependentUpon>CrashReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AdditionalWindows\EditRoleUserWindow.xaml.cs">
+      <DependentUpon>EditRoleUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindows\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\AdminPages\AdminMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AdditionalWindows\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AdditionalWindows\EditRoleUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

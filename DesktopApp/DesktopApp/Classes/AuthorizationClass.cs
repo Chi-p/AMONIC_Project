@@ -1,4 +1,5 @@
 ﻿using DesktopApp.Entities;
+using DesktopApp.Pages.AdminPages;
 using DesktopApp.Windows.MainWindows;
 using System;
 using System.Collections.Generic;
@@ -14,30 +15,60 @@ namespace DesktopApp.Classes
 
         public void CreateLoginHistory()
         {
-            AppData.Context.LoginHistories.Add(new LoginHistories
+            try
             {
-                Users = AppData.CurrentUser,
-                LoginDateTime = DateTime.Now
-            });
-            AppData.Context.SaveChanges();
+                AppData.Context.LoginHistories.Add(new LoginHistories
+                {
+                    Users = AppData.CurrentUser,
+                    LoginDateTime = DateTime.Now
+                });
+                AppData.Context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                AppData.Message.MessageInfo("There is no connection to the database. Please contact your system administrator.");
+            }
         }
 
         public void Logout(bool IsCloseAll)
         {
-            AppData.Context.LoginHistories.ToList().Where(i => 
-            i.Users == AppData.CurrentUser).Last().LogoutDateTime = DateTime.Now;
-            AppData.Context.SaveChanges();
-
-            AppData.CurrentUser = null;
-
-            if (IsCloseAll == true)
+            try
             {
-                Application.Current.MainWindow.Close();
+                AppData.Context.LoginHistories.ToList().Where(i =>
+                i.Users == AppData.CurrentUser).Last().LogoutDateTime = DateTime.Now;
+                AppData.Context.SaveChanges();
+
+                AppData.CurrentUser = null;
+
+                if (IsCloseAll == true)
+                {
+                    Application.Current.MainWindow.Close();
+                }
+                else
+                {
+                    Application.Current.MainWindow = new AuthorizationWindow();
+                    Application.Current.MainWindow.Show();
+                }
             }
-            else
+            catch (Exception)
             {
-                Application.Current.MainWindow = new AuthorizationWindow();
-                Application.Current.MainWindow.Show();
+                AppData.Message.MessageInfo("There is no connection to the database. Please contact your system administrator.");
+            }
+        }
+
+        public void Login(string role)
+        {
+            switch (role)
+            {
+                case "Administrator":
+                    new MainWindow(new AdminMenuPage()).Show();
+                    break;
+                case "User":
+                    AppData.Message.MessageInfo("The functionality for this role has not yet been implemented.");
+                    break;
+                default:
+                    AppData.Message.MessageInfo("The functionality for this role has not yet been implemented.");
+                    break;
             }
         }
     }

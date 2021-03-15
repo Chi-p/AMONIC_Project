@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp.Windows.MainWindows"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsVisibleChanged="Window_IsVisibleChanged">
     <Grid>
         <Image Source="/DesktopApp;component/Assets/Pictures/Logos/WSC2017_TP09_color@4x.png" 
                    VerticalAlignment="Top" Margin="40" Width="500"></Image>

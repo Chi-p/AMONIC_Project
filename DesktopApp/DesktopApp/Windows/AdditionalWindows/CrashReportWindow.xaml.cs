@@ -22,7 +22,8 @@ namespace DesktopApp.Windows.AdditionalWindows
     /// </summary>
     public partial class CrashReportWindow : Window
     {
-        private LoginHistories _loginHistory;
+        private readonly LoginHistories _loginHistory;
+        bool IsCloseAll = true;
 
         public CrashReportWindow(LoginHistories loginHistory)
         {
@@ -54,19 +55,21 @@ namespace DesktopApp.Windows.AdditionalWindows
 
                     AppData.Message.MessageInfo("The reason for the crash was successfully saved. Thank you for your help!");
 
-                    new MainWindow().Show();
+                    AppData.Authorization.Login(AppData.CurrentUser.Roles.Title);
+                    IsCloseAll = false;
                     Close();
                 }
             }
             catch (Exception)
             {
-                AppData.Message.MessageError("There is no connection to the database. Please contact your system administrator.");
+                AppData.Message.MessageInfo("There is no connection to the database. Please contact your system administrator.");
             }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Application.Current.MainWindow.Close();
+            if (IsCloseAll == true)
+                Application.Current.MainWindow.Close();
         }
     }
 }

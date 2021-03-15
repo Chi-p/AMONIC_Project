@@ -1,4 +1,6 @@
 ﻿using DesktopApp.Entities;
+using DesktopApp.Pages.AdminPages;
+using DesktopApp.Windows.AdditionalWindows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,24 +26,41 @@ namespace DesktopApp.Windows.MainWindows
     {
         private bool IsCloseAll = true;
 
-        public MainWindow()
+        public MainWindow(Page page)
         {
             InitializeComponent();
+
+            AppData.MainFrame = MainFrame;
+            AppData.MainFrame.Navigate(page);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             AppData.Authorization.Logout(IsCloseAll);
-
         }
 
-        private void BtnLogout_Click(object sender, RoutedEventArgs e)
+        private void MIAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserWindow window = new AddUserWindow
+            {
+                Owner = MainWindow.GetWindow(this)
+            };
+            window.ShowDialog();
+            AppData.MainFrame.Navigate(new AdminMenuPage());
+        }
+
+        private void MIExit_Click(object sender, RoutedEventArgs e)
         {
             if (AppData.Message.MessageQuestion("Are you sure you want to close this window and logout?") == MessageBoxResult.Yes)
             {
                 IsCloseAll = false;
                 Close();
             }
+        }
+
+        private void MainFrame_ContentRendered(object sender, EventArgs e)
+        {
+
         }
     }
 }

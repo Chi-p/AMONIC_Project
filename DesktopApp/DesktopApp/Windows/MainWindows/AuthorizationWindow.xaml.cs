@@ -3,6 +3,7 @@ using DesktopApp.Entities;
 using DesktopApp.Windows.AdditionalWindows;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace DesktopApp.Windows.MainWindows
         private int _attemptsCount = 3;
         private int _lockTime = 10;
         private readonly DispatcherTimer LockTimer = new DispatcherTimer();
+
         public AuthorizationWindow()
         {
             InitializeComponent();
@@ -52,6 +54,7 @@ namespace DesktopApp.Windows.MainWindows
         {
             try
             {
+                AppData.Context.ChangeTracker.Entries<Users>().ToList().ForEach(i => i.Reload());
 
                 if (string.IsNullOrWhiteSpace(TbxUsername.Text) && string.IsNullOrWhiteSpace(PbxPassword.Password))
                 {
@@ -96,8 +99,13 @@ namespace DesktopApp.Windows.MainWindows
                     AppData.CurrentUser = AppData.Context.Users.ToList().FirstOrDefault(i =>
                     i.Email == TbxUsername.Text && i.Password == PbxPassword.Password);
 
-                    Application.Current.MainWindow.Hide();
+                    if (AppData.CurrentUser.Active == false)
+                    {
+                        AppData.Message.MessageInfo("You have been disabled from logging in. Contact your system administrator to resolve the issue.");
+                        return;
+                    }
 
+                    Application.Current.MainWindow.Hide();
 
                     if (AppData.Context.LoginHistories.ToList()
                         .Where(i => i.Users == AppData.CurrentUser).Count() != 0)
@@ -120,31 +128,23 @@ namespace DesktopApp.Windows.MainWindows
                         AppData.Authorization.CreateLoginHistory();
                     }
 
-                    switch (AppData.CurrentUser.Roles.Title)
-                    {
-                        case "Administrator":
-                            new MainWindow().Show();
-                            break;
-                        case "User":
-                            new MainWindow().Show();
-                            break;
-                        default:
-                            AppData.Message.MessageInfo("The functionality for this role has not yet been implemented.");
-                            break;
-                    }
+                    AppData.Authorization.Login(AppData.CurrentUser.Roles.Title);
                 }
             }
             catch (Exception)
             {
-                AppData.Message.MessageError("There is no connection to the database. Please contact your system administrator.");
+                AppData.Message.MessageInfo("There is no connection to the database. Please contact your system administrator.");
             }
         }
-
-
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }

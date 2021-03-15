@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp.Windows.MainWindows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        Title="MainWindow" Height="600" Width="1000" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
-        <Button VerticalAlignment="Center" Name="BtnLogout" Click="BtnLogout_Click">Logout</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Menu BorderThickness="0 0 0 1" BorderBrush="{StaticResource PColor_MainBlue}" Background="{StaticResource SColor_LightBlue}">
+            <MenuItem Name="MIAdd" Click="MIAdd_Click" BorderThickness="0" Background="{StaticResource SColor_LightBlue}" Cursor="Hand">
+                <MenuItem.Header>
+                    <TextBlock Style="{StaticResource TbkBody}" FontSize="14" Margin="5 2" Foreground="White">Add user</TextBlock>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Name="MIExit" Click="MIExit_Click" BorderThickness="0" Background="{StaticResource SColor_LightBlue}" Cursor="Hand">
+                <MenuItem.Header>
+                    <TextBlock Style="{StaticResource TbkBody}" FontSize="14" Margin="5 2" Foreground="White">Exit</TextBlock>
+                </MenuItem.Header>
+            </MenuItem>
+        </Menu>
+
+        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"></Frame>
+        
     </Grid>
 </Window>
