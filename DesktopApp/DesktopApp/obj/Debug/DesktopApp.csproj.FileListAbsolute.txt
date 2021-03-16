@@ -81,3 +81,6 @@ D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileI
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\UserPages\UserMenuPage.g.cs
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\UserPages\UserMenuPage.baml

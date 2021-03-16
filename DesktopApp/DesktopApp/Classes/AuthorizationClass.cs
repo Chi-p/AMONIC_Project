@@ -1,5 +1,6 @@
 ﻿using DesktopApp.Entities;
 using DesktopApp.Pages.AdminPages;
+using DesktopApp.Pages.UserPages;
 using DesktopApp.Windows.MainWindows;
 using System;
 using System.Collections.Generic;
@@ -64,7 +65,7 @@ namespace DesktopApp.Classes
                     new MainWindow(new AdminMenuPage()).Show();
                     break;
                 case "User":
-                    AppData.Message.MessageInfo("The functionality for this role has not yet been implemented.");
+                    new MainWindow(new UserMenuPage()).Show();
                     break;
                 default:
                     AppData.Message.MessageInfo("The functionality for this role has not yet been implemented.");

@@ -32,6 +32,10 @@ namespace DesktopApp.Windows.MainWindows
 
             AppData.MainFrame = MainFrame;
             AppData.MainFrame.Navigate(page);
+
+            if (AppData.CurrentUser.Roles.Title == "User")
+                MIAdd.Visibility = Visibility.Collapsed;
+
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -60,7 +64,10 @@ namespace DesktopApp.Windows.MainWindows
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
-
+            if (AppData.MainFrame.Content is Page page)
+            {
+                page.Title = "AMONIC Airlines Automation System";
+            }
         }
     }
 }

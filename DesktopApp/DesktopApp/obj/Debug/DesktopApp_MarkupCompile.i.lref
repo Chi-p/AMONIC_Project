@@ -1,9 +1,4 @@
 ﻿
-FD:\AMONIC_Project\DesktopApp\DesktopApp\App.xaml;;
-FD:\AMONIC_Project\DesktopApp\DesktopApp\Pages\AdminPages\AdminMenuPage.xaml;;
-FD:\AMONIC_Project\DesktopApp\DesktopApp\Windows\AdditionalWindows\AddUserWindow.xaml;;
-FD:\AMONIC_Project\DesktopApp\DesktopApp\Windows\AdditionalWindows\EditRoleUserWindow.xaml;;
-FD:\AMONIC_Project\DesktopApp\DesktopApp\Windows\MainWindows\MainWindow.xaml;;
-FD:\AMONIC_Project\DesktopApp\DesktopApp\Windows\AdditionalWindows\CrashReportWindow.xaml;;
-FD:\AMONIC_Project\DesktopApp\DesktopApp\Windows\MainWindows\AuthorizationWindow.xaml;;
+
+FD:\AMONIC_Project\DesktopApp\DesktopApp\Pages\UserPages\UserMenuPage.xaml;;
 

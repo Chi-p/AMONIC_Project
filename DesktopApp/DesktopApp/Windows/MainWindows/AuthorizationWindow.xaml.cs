@@ -144,7 +144,9 @@ namespace DesktopApp.Windows.MainWindows
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            _lockTime = 10;
+            _attemptsCount = 3;
+            TbxUsername.Text = PbxPassword.Password = "";
         }
     }
 }

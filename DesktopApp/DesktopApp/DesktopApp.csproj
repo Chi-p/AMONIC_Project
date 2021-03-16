@@ -80,6 +80,9 @@
     <Compile Include="Pages\AdminPages\AdminMenuPage.xaml.cs">
       <DependentUpon>AdminMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserPages\UserMenuPage.xaml.cs">
+      <DependentUpon>UserMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AdditionalWindows\AddUserWindow.xaml.cs">
       <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\AdminPages\AdminMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\UserMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -55,8 +55,8 @@ namespace DesktopApp.Windows.AdditionalWindows
 
                     AppData.Message.MessageInfo("The reason for the crash was successfully saved. Thank you for your help!");
 
-                    AppData.Authorization.Login(AppData.CurrentUser.Roles.Title);
                     IsCloseAll = false;
+                    AppData.Authorization.Login(AppData.CurrentUser.Roles.Title);
                     Close();
                 }
             }

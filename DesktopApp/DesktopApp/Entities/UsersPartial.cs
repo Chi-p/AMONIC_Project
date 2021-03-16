@@ -25,6 +25,34 @@ namespace DesktopApp.Entities
             }
         }
 
+        public string FullName
+        {
+            get
+            {
+                return LastName + " " + FirstName;
+            }
+        }
+
+        public int CrashCount
+        {
+            get
+            {
+                return AppData.Context.LoginHistories.ToList().Where(i => i.Users == this).Count();
+            }
+        }
+
+        public TimeSpan? TimeSpent
+        {
+            get
+            {
+                var a = AppData.Context.LoginHistories.ToList().Where(i => i.Users == this).Last();
+                if (a.LogoutDateTime != null)
+                    return Convert.ToDateTime(a.LogoutDateTime) - a.LoginDateTime;
+                else
+                    return null;
+            }
+        }
+
         public Brush Background
         {
             get
