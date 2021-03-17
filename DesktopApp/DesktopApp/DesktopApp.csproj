@@ -76,6 +76,7 @@
     <Compile Include="Entities\LoginHistories.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LoginHistoriesPartial.cs" />
     <Compile Include="Entities\UsersPartial.cs" />
     <Compile Include="Pages\AdminPages\AdminMenuPage.xaml.cs">
       <DependentUpon>AdminMenuPage.xaml</DependentUpon>

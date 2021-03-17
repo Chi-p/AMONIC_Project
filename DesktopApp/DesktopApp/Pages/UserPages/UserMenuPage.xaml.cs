@@ -33,6 +33,8 @@ namespace DesktopApp.Pages.UserPages
             LockTimer.Tick += LockTimer_Tick;
             LockTimer.Start();
             TbkTimeSpent.Text = TimeSpent;
+            DGUsers.ItemsSource = AppData.Context.LoginHistories.ToList().Where(i => 
+            i.Users == AppData.CurrentUser).ToList().OrderByDescending(i => i.LoginDateTime);
         }
 
         private string TimeSpent
@@ -52,11 +54,6 @@ namespace DesktopApp.Pages.UserPages
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             LockTimer.Stop();
-        }
-
-        private void DGUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
