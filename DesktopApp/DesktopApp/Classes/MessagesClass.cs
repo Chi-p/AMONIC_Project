@@ -26,7 +26,12 @@ namespace DesktopApp.Classes
 
         public MessageBoxResult MessageQuestion(string message)
         {
-            return MessageBox.Show(message, "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            return MessageBox.Show(message, "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
+
+        public MessageBoxResult MessageCatch()
+        {
+            return MessageBox.Show("There is no connection to the database. Please contact your system administrator", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
         }
     }
 }

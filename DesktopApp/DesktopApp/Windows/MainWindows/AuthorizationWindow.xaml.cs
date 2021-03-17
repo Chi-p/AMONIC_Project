@@ -133,7 +133,7 @@ namespace DesktopApp.Windows.MainWindows
             }
             catch (Exception)
             {
-                AppData.Message.MessageInfo("There is no connection to the database. Please contact your system administrator.");
+                AppData.Message.MessageCatch();
             }
         }
 
