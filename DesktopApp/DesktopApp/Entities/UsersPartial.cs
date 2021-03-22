@@ -37,7 +37,7 @@ namespace DesktopApp.Entities
         {
             get
             {
-                return AppData.Context.LoginHistories.ToList().Where(i => i.Users == this).Count();
+                return AppData.Context.LoginHistories.ToList().Where(i => i.Users == this && !string.IsNullOrWhiteSpace(i.CrashReason)).Count();
             }
         }
 
