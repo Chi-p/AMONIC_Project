@@ -68,51 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\AuthorizationClass.cs" />
     <Compile Include="Classes\MessagesClass.cs" />
-    <Compile Include="Entities\CrashTypes.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\LoginHistories.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\LoginHistoriesPartial.cs" />
-    <Compile Include="Entities\UsersPartial.cs" />
-    <Compile Include="Pages\AdminPages\AdminMenuPage.xaml.cs">
-      <DependentUpon>AdminMenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\UserPages\UserMenuPage.xaml.cs">
-      <DependentUpon>UserMenuPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AdditionalWindows\AddUserWindow.xaml.cs">
-      <DependentUpon>AddUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AdditionalWindows\CrashReportWindow.xaml.cs">
-      <DependentUpon>CrashReportWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AdditionalWindows\EditRoleUserWindow.xaml.cs">
-      <DependentUpon>EditRoleUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\MainWindows\AuthorizationWindow.xaml.cs">
-      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Pages\AdminPages\AdminMenuPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\UserPages\UserMenuPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\AdditionalWindows\AddUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\AdditionalWindows\EditRoleUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\MainWindows\MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -120,49 +77,53 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Entities\Aircrafts.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Airports.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AMONIC_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AMONIC_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AMONIC_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AMONIC_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AMONIC_Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Entities\AppData.cs" />
     <Compile Include="Entities\Countries.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\ModelDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\ModelDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\ModelDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Offices.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Roles.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Routes.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Schedules.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\sysdiagrams.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Users.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MainWindows\MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\AdditionalWindows\CrashReportWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\MainWindows\AuthorizationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -182,13 +143,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entities\ModelDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Entities\ModelDB.edmx.diagram">
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </None>
     <Resource Include="Assets\Fonts\TCBI____.TTF" />
     <Resource Include="Assets\Fonts\TCB_____.TTF" />
     <Resource Include="Assets\Fonts\TCCB____.TTF" />
@@ -204,6 +158,13 @@
     <Resource Include="Assets\Fonts\verdanab.ttf" />
     <Resource Include="Assets\Fonts\verdanai.ttf" />
     <Resource Include="Assets\Fonts\verdanaz.ttf" />
+    <EntityDeploy Include="Entities\AMONIC_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AMONIC_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\AMONIC_Model.edmx.diagram">
+      <DependentUpon>AMONIC_Model.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -235,20 +196,21 @@
     <Resource Include="Assets\Pictures\Logos\white.png" />
     <Resource Include="Assets\Pictures\WSC2017_TP09_Airplane-Amonic-Single.png" />
     <Resource Include="Assets\Pictures\WSC2017_TP09_Airplane-Amonic.png" />
-    <Content Include="Entities\ModelDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="Entities\ModelDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDB.edmx</DependentUpon>
-      <LastGenOutput>ModelDB.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entities\AMONIC_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AMONIC_Model.edmx</DependentUpon>
+      <LastGenOutput>AMONIC_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\AMONIC_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AMONIC_Model.edmx</DependentUpon>
+      <LastGenOutput>AMONIC_Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

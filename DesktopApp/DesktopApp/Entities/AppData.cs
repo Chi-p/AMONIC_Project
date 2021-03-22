@@ -13,7 +13,7 @@ namespace DesktopApp.Entities
         /// <summary>
         /// Entity to interact with the database
         /// </summary>
-        public static AMONICEntities Context = new AMONICEntities();
+        public static AmonicEntities Context = new AmonicEntities();
         /// <summary>
         /// Frame for displaying the page in the window
         /// </summary>
@@ -30,6 +30,5 @@ namespace DesktopApp.Entities
         /// <summary>
         /// Authorization class
         /// </summary>
-        public static AuthorizationClass Authorization = new AuthorizationClass();
     }
 }

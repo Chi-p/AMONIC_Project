@@ -1,0 +1,92 @@
+﻿<Window x:Class="DesktopApp.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopApp.Windows"
+        mc:Ignorable="d"
+        Title="Manage Flight Schedules" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Filter by" Margin="20">
+            <Grid>
+                <StackPanel HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Style="{StaticResource TbkBody}">From</TextBlock>
+                        <ComboBox Name="CbxFrom" DisplayMemberPath="Name"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Style="{StaticResource TbkBody}">Outbound</TextBlock>
+                        <DatePicker Width="180" Name="DPOutbound"></DatePicker>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Style="{StaticResource TbkBody}">To</TextBlock>
+                        <ComboBox Name="CbxTo" DisplayMemberPath="Name"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Style="{StaticResource TbkBody}">Flight number</TextBlock>
+                        <TextBox Width="88" Height="32" Name="TbxFlightNumber"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Style="{StaticResource TbkBody}">Sort by</TextBlock>
+                        <ComboBox Name="CbxSort"></ComboBox>
+                    </StackPanel>
+                    <Button HorizontalAlignment="Right" Width="180" Name="BtnApply" Click="BtnApply_Click">Apply</Button>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+        <DataGrid Grid.Row="1" Name="DGFlights" Margin="20 5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Width="1.5*" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Time" Width="*" Binding="{Binding Time}"></DataGridTextColumn>
+                <DataGridTextColumn Header="From" Width="*" Binding="{Binding Routes.Airports.IATACode}"></DataGridTextColumn>
+                <DataGridTextColumn Header="To" Width="*" Binding="{Binding Routes.Airports1.IATACode}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Flight number" Width="2*" Binding="{Binding FlightNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Economy price" Width="2*"  Binding="{Binding EconomyPrice, StringFormat= {}{0:N2} р.}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Business price" Width="2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="First class price" Width="2*" ></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="2" Margin="20 5 5 20">
+            <Button Name="BtnCancelFlight" Click="BtnCancelFlight_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xf78a;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"></TextBlock>
+                        <TextBlock Style="{StaticResource TbkBody}">Cancel flight</TextBlock>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="BtnEditFlight" Click="BtnEditFlight_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&#xEB7E;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"></TextBlock>
+                        <TextBlock Style="{StaticResource TbkBody}">Edit flight</TextBlock>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <Button HorizontalAlignment="Right" Grid.Row="2" VerticalAlignment="Top" Margin="5 10 20 20"
+                Name="BtnImportChanges" Click="BtnImportChanges_Click" Width="auto">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE752;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"></TextBlock>
+                    <TextBlock Style="{StaticResource TbkBody}">Import changes</TextBlock>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+    </Grid>
+</Window>

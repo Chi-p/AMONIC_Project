@@ -12,21 +12,24 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Countries
+    public partial class Airports
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Countries()
+        public Airports()
         {
-            this.Airports = new HashSet<Airports>();
-            this.Offices = new HashSet<Offices>();
+            this.Routes = new HashSet<Routes>();
+            this.Routes1 = new HashSet<Routes>();
         }
     
         public int ID { get; set; }
+        public int CountryID { get; set; }
+        public string IATACode { get; set; }
         public string Name { get; set; }
     
+        public virtual Countries Countries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Airports> Airports { get; set; }
+        public virtual ICollection<Routes> Routes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Offices> Offices { get; set; }
+        public virtual ICollection<Routes> Routes1 { get; set; }
     }
 }

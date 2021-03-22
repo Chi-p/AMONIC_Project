@@ -12,16 +12,18 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class LoginHistories
+    public partial class Schedules
     {
         public int ID { get; set; }
-        public int UserID { get; set; }
-        public System.DateTime LoginDateTime { get; set; }
-        public Nullable<System.DateTime> LogoutDateTime { get; set; }
-        public Nullable<int> CrashTypeID { get; set; }
-        public string CrashReason { get; set; }
+        public System.DateTime Date { get; set; }
+        public System.TimeSpan Time { get; set; }
+        public int AircraftID { get; set; }
+        public int RouteID { get; set; }
+        public decimal EconomyPrice { get; set; }
+        public bool Confirmed { get; set; }
+        public string FlightNumber { get; set; }
     
-        public virtual CrashTypes CrashTypes { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual Aircrafts Aircrafts { get; set; }
+        public virtual Routes Routes { get; set; }
     }
 }

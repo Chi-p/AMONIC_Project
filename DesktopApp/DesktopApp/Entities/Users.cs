@@ -14,12 +14,6 @@ namespace DesktopApp.Entities
     
     public partial class Users
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
-        {
-            this.LoginHistories = new HashSet<LoginHistories>();
-        }
-    
         public int ID { get; set; }
         public int RoleID { get; set; }
         public string Email { get; set; }
@@ -30,8 +24,6 @@ namespace DesktopApp.Entities
         public Nullable<System.DateTime> Birthdate { get; set; }
         public Nullable<bool> Active { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoginHistories> LoginHistories { get; set; }
         public virtual Offices Offices { get; set; }
         public virtual Roles Roles { get; set; }
     }

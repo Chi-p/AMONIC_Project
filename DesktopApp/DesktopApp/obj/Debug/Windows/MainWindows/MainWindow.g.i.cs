@@ -41,23 +41,7 @@ namespace DesktopApp.Windows.MainWindows {
     public partial class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 16 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.MenuItem MIAdd;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 21 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.MenuItem MIExit;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 28 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
+        #line 11 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Frame MainFrame;
         
@@ -103,27 +87,9 @@ namespace DesktopApp.Windows.MainWindows {
             #line hidden
             return;
             case 2:
-            this.MIAdd = ((System.Windows.Controls.MenuItem)(target));
-            
-            #line 16 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
-            this.MIAdd.Click += new System.Windows.RoutedEventHandler(this.MIAdd_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 3:
-            this.MIExit = ((System.Windows.Controls.MenuItem)(target));
-            
-            #line 21 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
-            this.MIExit.Click += new System.Windows.RoutedEventHandler(this.MIExit_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 4:
             this.MainFrame = ((System.Windows.Controls.Frame)(target));
             
-            #line 28 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
+            #line 11 "..\..\..\..\Windows\MainWindows\MainWindow.xaml"
             this.MainFrame.ContentRendered += new System.EventHandler(this.MainFrame_ContentRendered);
             
             #line default

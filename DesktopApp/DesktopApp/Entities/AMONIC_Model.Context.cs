@@ -13,10 +13,10 @@ namespace DesktopApp.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AMONICEntities : DbContext
+    public partial class AmonicEntities : DbContext
     {
-        public AMONICEntities()
-            : base("name=AMONICEntities")
+        public AmonicEntities()
+            : base("name=AmonicEntities")
         {
         }
     
@@ -25,11 +25,13 @@ namespace DesktopApp.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Aircrafts> Aircrafts { get; set; }
+        public virtual DbSet<Airports> Airports { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
-        public virtual DbSet<CrashTypes> CrashTypes { get; set; }
-        public virtual DbSet<LoginHistories> LoginHistories { get; set; }
         public virtual DbSet<Offices> Offices { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<Routes> Routes { get; set; }
+        public virtual DbSet<Schedules> Schedules { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
