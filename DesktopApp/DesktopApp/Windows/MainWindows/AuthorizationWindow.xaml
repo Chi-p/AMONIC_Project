@@ -30,7 +30,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1">
                 <Button Margin="20" Name="BtnLogin" Click="BtnLogin_Click" IsDefault="True">Login</Button>
-                <Button Margin="20" Name="BtnExit" Click="BtnExit_Click" IsCancel="True">Exit</Button>
+                <Button Margin="20" Name="BtnExit" Click="BtnExit_Click" IsCancel="True" Style="{StaticResource BtnCancel}">Exit</Button>
             </StackPanel>
         </Grid>
 

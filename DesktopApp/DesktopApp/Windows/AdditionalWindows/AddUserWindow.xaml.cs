@@ -34,6 +34,9 @@ namespace DesktopApp.Windows.AdditionalWindows
             DataContext = _user;
         }
 
+        /// <summary>
+        /// Method of first data loading
+        /// </summary>
         private void Load()
         {
             CbxOffice.ItemsSource = AppData.Context.Offices.ToList();

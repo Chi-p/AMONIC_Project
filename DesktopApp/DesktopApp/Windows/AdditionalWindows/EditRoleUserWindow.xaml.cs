@@ -30,6 +30,9 @@ namespace DesktopApp.Windows.AdditionalWindows
             Load();
         }
 
+        /// <summary>
+        /// Method of first data loading
+        /// </summary>
         private void Load()
         {
             try

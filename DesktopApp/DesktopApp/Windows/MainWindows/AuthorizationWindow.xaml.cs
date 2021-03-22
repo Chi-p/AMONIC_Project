@@ -36,6 +36,9 @@ namespace DesktopApp.Windows.MainWindows
             LockTimer.Tick += LockTimer_Tick;
         }
 
+        /// <summary>
+        /// Event handler for the login lock timer
+        /// </summary>
         private void LockTimer_Tick(object sender, EventArgs e)
         {
             TbkLockMessage.Text = $"Account has been locked. Please try again in {--_lockTime} seconds.";
@@ -50,6 +53,9 @@ namespace DesktopApp.Windows.MainWindows
             }
         }
 
+        /// <summary>
+        /// Event handler for logging in to your account
+        /// </summary>
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -137,11 +143,17 @@ namespace DesktopApp.Windows.MainWindows
             }
         }
 
+        /// <summary>
+        /// Application exit event handler
+        /// </summary>
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Event handler for changing the window visible state
+        /// </summary>
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             _lockTime = 10;

@@ -48,7 +48,7 @@
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Orientation="Horizontal">
             <Button Margin="20" Name="BtnApply" Click="BtnApply_Click">Apply</Button>
-            <Button Margin="20" Name="BtnCancel" Click="BtnCancel_Click">Cancel</Button>
+            <Button Margin="20" Name="BtnCancel" Click="BtnCancel_Click" Style="{StaticResource BtnCancel}">Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>

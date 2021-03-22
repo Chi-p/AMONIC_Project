@@ -38,11 +38,17 @@ namespace DesktopApp.Windows.MainWindows
 
         }
 
+        /// <summary>
+        /// Event handler for closing the window
+        /// </summary>
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             AppData.Authorization.Logout(IsCloseAll);
         }
 
+        /// <summary>
+        /// Event handler for adding a new user
+        /// </summary>
         private void MIAdd_Click(object sender, RoutedEventArgs e)
         {
             AddUserWindow window = new AddUserWindow
@@ -53,6 +59,9 @@ namespace DesktopApp.Windows.MainWindows
             AppData.MainFrame.Navigate(new AdminMenuPage());
         }
 
+        /// <summary>
+        /// Event handler to log out of your account
+        /// </summary>
         private void MIExit_Click(object sender, RoutedEventArgs e)
         {
             if (AppData.Message.MessageQuestion("Are you sure you want to close this window and logout?") == MessageBoxResult.Yes)
@@ -62,6 +71,9 @@ namespace DesktopApp.Windows.MainWindows
             }
         }
 
+        /// <summary>
+        /// Event handler content changes in an frame
+        /// </summary>
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
             if (AppData.MainFrame.Content is Page page)

@@ -29,6 +29,9 @@ namespace DesktopApp.Pages.AdminPages
             Load();
         }
 
+        /// <summary>
+        /// Method of first data loading
+        /// </summary>
         private void Load()
         {
             try
@@ -49,6 +52,9 @@ namespace DesktopApp.Pages.AdminPages
             }
         }
 
+        /// <summary>
+        /// Data update method
+        /// </summary>
         private void Update()
         {
             try
