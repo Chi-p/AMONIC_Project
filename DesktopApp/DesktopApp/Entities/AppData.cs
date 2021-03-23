@@ -22,13 +22,9 @@ namespace DesktopApp.Entities
         /// User saved at login
         /// </summary>
         public static Users CurrentUser;
-
         /// <summary>
         /// Message class
         /// </summary>
         public static MessagesClass Message = new MessagesClass();
-        /// <summary>
-        /// Authorization class
-        /// </summary>
     }
 }

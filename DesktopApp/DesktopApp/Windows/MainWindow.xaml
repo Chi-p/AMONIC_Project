@@ -41,37 +41,53 @@
                         <TextBlock Style="{StaticResource TbkBody}">Sort by</TextBlock>
                         <ComboBox Name="CbxSort"></ComboBox>
                     </StackPanel>
-                    <Button HorizontalAlignment="Right" Width="180" Name="BtnApply" Click="BtnApply_Click">Apply</Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Width="85" Name="BtnApply" Click="BtnApply_Click">Apply</Button>
+                        <Button Width="85" Name="BtnClear" Click="BtnClear_Click" Style="{StaticResource BtnCancel}">Clear</Button>
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </GroupBox>
 
-        <DataGrid Grid.Row="1" Name="DGFlights" Margin="20 5">
+        <DataGrid Grid.Row="1" Name="DGFlights" Margin="20 5" SelectionChanged="DGFlights_SelectionChanged">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding Background}"/>
+                    <Setter Property="Foreground" Value="{Binding Foreground}"/>
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Date" Width="1.5*" Binding="{Binding Date}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Time" Width="*" Binding="{Binding Time}"></DataGridTextColumn>
-                <DataGridTextColumn Header="From" Width="*" Binding="{Binding Routes.Airports.IATACode}"></DataGridTextColumn>
-                <DataGridTextColumn Header="To" Width="*" Binding="{Binding Routes.Airports1.IATACode}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Flight number" Width="2*" Binding="{Binding FlightNumber}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Economy price" Width="2*"  Binding="{Binding EconomyPrice, StringFormat= {}{0:N2} р.}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Business price" Width="2*"></DataGridTextColumn>
-                <DataGridTextColumn Header="First class price" Width="2*" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Date" Width="auto" Binding="{Binding Date, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Time" Width="*" Binding="{Binding Time, StringFormat=hh\\:mm}"/>
+                <DataGridTextColumn Header="From" Width="*" Binding="{Binding Routes.Airports.IATACode}"/>
+                <DataGridTextColumn Header="To" Width="*" Binding="{Binding Routes.Airports1.IATACode}"/>
+                <DataGridTextColumn Header="Flight number" Width="2*" Binding="{Binding FlightNumber}"/>
+                <DataGridTextColumn Header="Economy price" Width="2*" Binding="{Binding EconomyPrice, StringFormat= {}{0:N2} р.}"/>
+                <DataGridTextColumn Header="Business price" Width="2*" Binding="{Binding BusinessPrice, StringFormat= {}{0:N2} р.}"/>
+                <DataGridTextColumn Header="First class price" Width="2*" Binding="{Binding FirstClassPrice, StringFormat= {}{0:N2} р.}"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="2" Margin="20 5 5 20">
-            <Button Name="BtnCancelFlight" Click="BtnCancelFlight_Click">
+            <Button Name="BtnChangeConfirmed" Click="BtnChangeConfirmed_Click" IsEnabled="False">
                 <Button.Content>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xf78a;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"></TextBlock>
-                        <TextBlock Style="{StaticResource TbkBody}">Cancel flight</TextBlock>
-                    </StackPanel>
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" Name="SPCancel" Visibility="Hidden">
+                            <TextBlock Text="&#xF78A;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"/>
+                            <TextBlock Style="{StaticResource TbkBody}">Cancel flight</TextBlock>
+                        </StackPanel>
+                        <TextBlock Style="{StaticResource TbkBody}" HorizontalAlignment="Center" Name="TbkSelect">Select a row</TextBlock>
+                        <StackPanel Orientation="Horizontal" Name="SPEnable" Visibility="Hidden">
+                            <TextBlock Text="&#xE73E;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"/>
+                            <TextBlock Style="{StaticResource TbkBody}">Enable flight</TextBlock>
+                        </StackPanel>
+                    </Grid>
                 </Button.Content>
             </Button>
-            <Button Name="BtnEditFlight" Click="BtnEditFlight_Click">
+            <Button Name="BtnEditFlight" Click="BtnEditFlight_Click" IsEnabled="False">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="&#xEB7E;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"></TextBlock>
+                        <TextBlock Text="&#xEB7E;" FontFamily="Segoe MDL2 Assets" Style="{StaticResource TbkBody}"/>
                         <TextBlock Style="{StaticResource TbkBody}">Edit flight</TextBlock>
                     </StackPanel>
                 </Button.Content>

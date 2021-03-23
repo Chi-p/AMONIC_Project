@@ -69,6 +69,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\MessagesClass.cs" />
+    <Page Include="Windows\EditFlightWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,11 +118,15 @@
     <Compile Include="Entities\Schedules.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\SchedulesPartial.cs" />
     <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Users.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditFlightWindow.xaml.cs">
+      <DependentUpon>EditFlightWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
