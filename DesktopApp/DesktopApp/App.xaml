@@ -431,6 +431,10 @@
         </Style>
 
         <!--#endregion-->
+
+        <Style TargetType="GroupBox">
+            <Setter Property="BorderBrush" Value="{StaticResource PColor_MainBlue}"></Setter>
+        </Style>
         
     </Application.Resources>
 </Application>

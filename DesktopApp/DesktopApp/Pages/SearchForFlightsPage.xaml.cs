@@ -97,7 +97,10 @@ namespace DesktopApp.Pages
                 }
             }
 
-            AppData.Message.MessageInfo("Vse good, no poka ne rabotaet, derzju v kurse");
+            AppData.MainFrame.Navigate(new BookingConfirmationPage(
+                DGOutbound.SelectedItem as Schedules, 
+                DGReturn.SelectedItem as Schedules, 
+                int.Parse(TbxPassengers.Text)));
         }
 
         private void BtnApply_Click(object sender, RoutedEventArgs e)
