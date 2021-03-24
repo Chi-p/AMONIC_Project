@@ -69,11 +69,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\MessagesClass.cs" />
-    <Page Include="Windows\EditFlightWindow.xaml">
+    <Page Include="Pages\BookingConfirmationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ImportWindow.xaml">
+    <Page Include="Pages\SearchForFlightsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,6 +107,9 @@
       <DependentUpon>AMONIC_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\AppData.cs" />
+    <Compile Include="Entities\CabinTypes.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Countries.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
@@ -126,14 +129,17 @@
     <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Tickets.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Users.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EditFlightWindow.xaml.cs">
-      <DependentUpon>EditFlightWindow.xaml</DependentUpon>
+    <Compile Include="Pages\BookingConfirmationPage.xaml.cs">
+      <DependentUpon>BookingConfirmationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ImportWindow.xaml.cs">
-      <DependentUpon>ImportWindow.xaml</DependentUpon>
+    <Compile Include="Pages\SearchForFlightsPage.xaml.cs">
+      <DependentUpon>SearchForFlightsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

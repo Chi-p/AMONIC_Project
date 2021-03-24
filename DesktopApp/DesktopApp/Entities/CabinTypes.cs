@@ -12,25 +12,17 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Schedules
+    public partial class CabinTypes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Schedules()
+        public CabinTypes()
         {
             this.Tickets = new HashSet<Tickets>();
         }
     
         public int ID { get; set; }
-        public System.DateTime Date { get; set; }
-        public System.TimeSpan Time { get; set; }
-        public int AircraftID { get; set; }
-        public int RouteID { get; set; }
-        public decimal EconomyPrice { get; set; }
-        public bool Confirmed { get; set; }
-        public string FlightNumber { get; set; }
+        public string Name { get; set; }
     
-        public virtual Aircrafts Aircrafts { get; set; }
-        public virtual Routes Routes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tickets> Tickets { get; set; }
     }

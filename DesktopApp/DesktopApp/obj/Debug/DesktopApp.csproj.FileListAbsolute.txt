@@ -72,7 +72,7 @@ D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.exe
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
-D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\EditFlightWindow.g.cs
-D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\EditFlightWindow.baml
-D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\ImportWindow.g.cs
-D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\ImportWindow.baml
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\BookingConfirmationPage.g.cs
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\SearchForFlightsPage.g.cs
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\BookingConfirmationPage.baml
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\SearchForFlightsPage.baml

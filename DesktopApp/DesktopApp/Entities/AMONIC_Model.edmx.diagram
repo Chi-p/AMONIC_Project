@@ -5,23 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e1099a85d9c84688a79bccf29fb399b1" Name="Diagram1">
-        <EntityTypeShape EntityType="AMONICModel.Aircrafts" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Airports" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Countries" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Offices" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Roles" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Routes" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Schedules" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AMONICModel.Users" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
-        <AssociationConnector Association="AMONICModel.FK_Schedule_AirCraft" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_AirPort_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Routes_Airports2" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Routes_Airports3" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Office_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Users_Offices" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Users_Roles" ManuallyRouted="false" />
-        <AssociationConnector Association="AMONICModel.FK_Schedule_Routes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AMONICModel.Aircrafts" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="AMONICModel.Airports" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="AMONICModel.CabinTypes" Width="1.5" PointX="7.5" PointY="6.875" />
+        <EntityTypeShape EntityType="AMONICModel.Countries" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="AMONICModel.Offices" Width="1.5" PointX="3" PointY="5.625" />
+        <EntityTypeShape EntityType="AMONICModel.Roles" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="AMONICModel.Routes" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="AMONICModel.Schedules" Width="1.5" PointX="7.5" PointY="2.125" />
+        <EntityTypeShape EntityType="AMONICModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AMONICModel.Tickets" Width="1.5" PointX="9.75" PointY="3.875" />
+        <EntityTypeShape EntityType="AMONICModel.Users" Width="1.5" PointX="5.25" PointY="6.25" />
+        <AssociationConnector Association="AMONICModel.FK_Schedule_AirCraft" />
+        <AssociationConnector Association="AMONICModel.FK_AirPort_Country" />
+        <AssociationConnector Association="AMONICModel.FK_Routes_Airports2" />
+        <AssociationConnector Association="AMONICModel.FK_Routes_Airports3" />
+        <AssociationConnector Association="AMONICModel.FK_Ticket_TravelClass" />
+        <AssociationConnector Association="AMONICModel.FK_Office_Country" />
+        <AssociationConnector Association="AMONICModel.FK_Users_Offices" />
+        <AssociationConnector Association="AMONICModel.FK_Users_Roles" />
+        <AssociationConnector Association="AMONICModel.FK_Schedule_Routes" />
+        <AssociationConnector Association="AMONICModel.FK_Ticket_Schedule" />
+        <AssociationConnector Association="AMONICModel.FK_Ticket_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

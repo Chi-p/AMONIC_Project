@@ -27,12 +27,14 @@ namespace DesktopApp.Entities
     
         public virtual DbSet<Aircrafts> Aircrafts { get; set; }
         public virtual DbSet<Airports> Airports { get; set; }
+        public virtual DbSet<CabinTypes> CabinTypes { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
         public virtual DbSet<Offices> Offices { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Routes> Routes { get; set; }
         public virtual DbSet<Schedules> Schedules { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Tickets> Tickets { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }
