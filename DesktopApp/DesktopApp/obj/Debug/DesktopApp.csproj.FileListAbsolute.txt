@@ -74,3 +74,5 @@ D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.pdb
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\DesktopApp.csprojAssemblyReference.cache
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\EditFlightWindow.g.cs
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\EditFlightWindow.baml
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\ImportWindow.g.cs
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\ImportWindow.baml

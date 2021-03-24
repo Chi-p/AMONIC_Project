@@ -32,6 +32,7 @@ namespace DesktopApp.Windows
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
             Load();
+            Update();
         }
 
         /// <summary>
@@ -54,9 +55,6 @@ namespace DesktopApp.Windows
                 }
 
                 CbxFrom.SelectedIndex = CbxTo.SelectedIndex = CbxSort.SelectedIndex = 0;
-
-                schedulesList = AppData.Context.Schedules.ToList();
-                DGFlights.ItemsSource = schedulesList;
             }
             catch (Exception)
             {
@@ -152,7 +150,12 @@ namespace DesktopApp.Windows
 
         private void BtnImportChanges_Click(object sender, RoutedEventArgs e)
         {
-            AppData.Message.MessageNotFunctional();
+            ImportWindow window = new ImportWindow
+            {
+                Owner = GetWindow(this)
+            };
+            window.ShowDialog();
+            Update();
         }
 
         private void BtnApply_Click(object sender, RoutedEventArgs e)

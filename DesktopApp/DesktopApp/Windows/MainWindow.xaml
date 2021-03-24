@@ -13,7 +13,7 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Filter by" Margin="20">
+        <GroupBox Header="Filter by" Margin="20" BorderBrush="{StaticResource PColor_MainBlue}">
             <Grid>
                 <StackPanel HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
