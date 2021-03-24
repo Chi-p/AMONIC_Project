@@ -76,7 +76,28 @@ namespace DesktopApp.Pages
 
         private void BtnBookFlight_Click(object sender, RoutedEventArgs e)
         {
-            AppData.Message.MessageNotFunctional();
+            if (string.IsNullOrWhiteSpace(TbxPassengers.Text))
+            {
+                AppData.Message.MessageError("Enter the number of passengers");
+                return;
+            }
+            else if (DGOutbound.SelectedItem == null || (DGReturn.SelectedItem == null && ChBxReturn.IsChecked == true))
+            {
+                AppData.Message.MessageError("Choose a flight");
+                return;
+            }
+            else if (DGReturn.SelectedItem != null)
+            {
+                if ((DGOutbound.SelectedItem as Schedules).Date >= (DGReturn.SelectedItem as Schedules).Date)
+                {
+                    AppData.Message.MessageError
+                        ("The outbound and return dates can't be the same \" The return date can't be earlier than the outbound date");      
+                    return;
+
+                }
+            }
+
+            AppData.Message.MessageInfo("Vse good, no poka ne rabotaet, derzju v kurse");
         }
 
         private void BtnApply_Click(object sender, RoutedEventArgs e)
@@ -106,7 +127,7 @@ namespace DesktopApp.Pages
             }
             else if (DPOutbound.SelectedDate >= DPReturn.SelectedDate)
             {
-                AppData.Message.MessageError("The return date cannot be earlier than the outbound date");
+                AppData.Message.MessageError("The return date can't be earlier than the outbound date");
             }
             else
             {
