@@ -16,7 +16,24 @@ namespace DesktopApp.Entities
             }
         }
 
-        public string CabinPrice { get; set; }
+        public decimal CabinPrice
+        {
+            get
+            {
+                switch (CabinPriceName)
+                {
+                    case "Economy":
+                        return EconomyPrice;
+                    case "Business":
+                        return EconomyPrice * (decimal)1.35;
+                    case "First Class":
+                        return EconomyPrice * (decimal)1.35 * (decimal)1.3;
+                    default:
+                        return 0;
+                }
+            }
+        }
+        public string CabinPriceName { get; set; }
 
         public int NumberOfStops
         {

@@ -91,15 +91,15 @@ namespace DesktopApp.Pages
                 if ((DGOutbound.SelectedItem as Schedules).Date >= (DGReturn.SelectedItem as Schedules).Date)
                 {
                     AppData.Message.MessageError
-                        ("The outbound and return dates can't be the same \" The return date can't be earlier than the outbound date");      
+                        ("The outbound and return dates can't be the same \" The return date can't be earlier than the outbound date");
                     return;
 
                 }
             }
 
             AppData.MainFrame.Navigate(new BookingConfirmationPage(
-                DGOutbound.SelectedItem as Schedules, 
-                DGReturn.SelectedItem as Schedules, 
+                DGOutbound.SelectedItem as Schedules,
+                DGReturn.SelectedItem as Schedules,
                 int.Parse(TbxPassengers.Text)));
         }
 
@@ -155,7 +155,7 @@ namespace DesktopApp.Pages
                     && i.Date <= DPOutbound.SelectedDate.Value.AddDays(3)).ToList();
                 else
                     _outboundList = _outboundList.Where(i => i.Date == DPOutbound.SelectedDate).ToList();
-               
+
                 if (RBtnReturn.IsChecked == true)
                 {
                     GridReturn.Visibility = Visibility.Visible;
@@ -169,8 +169,8 @@ namespace DesktopApp.Pages
                     else
                         _returnList = _returnList.Where(i => i.Date == DPReturn.SelectedDate).ToList();
 
-                    foreach (var item in _outboundList)
-                        SetCabinPrice(item);
+                    foreach (var item in _returnList)
+                        item.CabinPriceName = CbxCabinType.Text;
 
                     DGReturn.ItemsSource = _returnList;
                 }
@@ -180,32 +180,13 @@ namespace DesktopApp.Pages
                 }
 
                 foreach (var item in _outboundList)
-                    SetCabinPrice(item);
+                    item.CabinPriceName = CbxCabinType.Text;
 
                 DGOutbound.ItemsSource = _outboundList;
             }
             catch (Exception)
             {
                 AppData.Message.MessageNotConnect();
-            }
-        }
-
-        private void SetCabinPrice(Schedules item)
-        {
-            switch (CbxCabinType.Text)
-            {
-                case "Economy":
-                    item.CabinPrice = $"${item.EconomyPrice:N2}";
-                    break;
-                case "Business":
-                    item.CabinPrice = $"${item.EconomyPrice * (decimal)1.35:N2}";
-                    break;
-                case "First Class":
-                    item.CabinPrice = $"${item.EconomyPrice * (decimal)1.35 * (decimal)1.3:N2}";
-                    break;
-                default:
-                    item.CabinPrice = "-";
-                    break;
             }
         }
 

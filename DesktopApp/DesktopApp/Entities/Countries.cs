@@ -19,6 +19,7 @@ namespace DesktopApp.Entities
         {
             this.Airports = new HashSet<Airports>();
             this.Offices = new HashSet<Offices>();
+            this.Tickets = new HashSet<Tickets>();
         }
     
         public int ID { get; set; }
@@ -28,5 +29,7 @@ namespace DesktopApp.Entities
         public virtual ICollection<Airports> Airports { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Offices> Offices { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tickets> Tickets { get; set; }
     }
 }

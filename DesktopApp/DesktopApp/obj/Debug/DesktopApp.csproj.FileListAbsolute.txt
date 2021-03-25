@@ -76,3 +76,5 @@ D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\BookingConfirmationPage.
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\SearchForFlightsPage.g.cs
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\BookingConfirmationPage.baml
 D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Pages\SearchForFlightsPage.baml
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\BillingConfirmWindow.g.cs
+D:\AMONIC_Project\DesktopApp\DesktopApp\obj\Debug\Windows\BillingConfirmWindow.baml

@@ -97,6 +97,7 @@
     <EntitySetMapping Name="Tickets">
       <EntityTypeMapping TypeName="AMONICModel.Tickets">
         <MappingFragment StoreEntitySet="Tickets">
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
           <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
           <ScalarProperty Name="BookingReference" ColumnName="BookingReference" />
           <ScalarProperty Name="PassportCountryID" ColumnName="PassportCountryID" />

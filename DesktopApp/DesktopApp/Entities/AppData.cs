@@ -26,5 +26,7 @@ namespace DesktopApp.Entities
         /// Message class
         /// </summary>
         public static MessagesClass Message = new MessagesClass();
+
+        public static bool IsAddTickets = false;
     }
 }

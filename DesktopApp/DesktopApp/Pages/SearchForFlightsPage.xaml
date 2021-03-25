@@ -74,7 +74,7 @@
                     <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd/MM/yyyy}" Width="*"/>
                     <DataGridTextColumn Header="Time" Binding="{Binding Time, StringFormat=hh\\:mm}" Width="*"/>
                     <DataGridTextColumn Header="Flight number(s)" Binding="{Binding FlightNumber}" Width="2*"/>
-                    <DataGridTextColumn Header="Cabin price" Binding="{Binding CabinPrice}" Width="2*"/>
+                    <DataGridTextColumn Header="Cabin price" Binding="{Binding CabinPrice, StringFormat=${0:N2}}" Width="2*"/>
                     <DataGridTextColumn Header="Number of stops" Binding="{Binding NumberOfStops}" Width="2*"/>
                 </DataGrid.Columns>
             </DataGrid>
@@ -97,7 +97,7 @@
                     <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd/MM/yyyy}" Width="auto"/>
                     <DataGridTextColumn Header="Time" Binding="{Binding Time, StringFormat=hh\\:mm}" Width="*"/>
                     <DataGridTextColumn Header="Flight number(s)" Binding="{Binding FlightNumber}" Width="2*"/>
-                    <DataGridTextColumn Header="Cabin price" Binding="{Binding CabinPrice}" Width="2*"/>
+                    <DataGridTextColumn Header="Cabin price" Binding="{Binding CabinPrice, StringFormat=${0:N2}}" Width="2*"/>
                     <DataGridTextColumn Header="Number of stops" Binding="{Binding NumberOfStops}" Width="2*"/>
                 </DataGrid.Columns>
             </DataGrid>

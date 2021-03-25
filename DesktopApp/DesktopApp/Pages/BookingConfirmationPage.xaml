@@ -26,7 +26,7 @@
                 <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding Routes.Airports1.IATACode}" Margin="5 5 40 5"></TextBlock>
 
                 <TextBlock Style="{StaticResource TbkBody}" Text="Cabin type:"></TextBlock>
-                <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding CabinPrice}" Margin="5 5 40 5"></TextBlock>
+                <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding CabinPriceName}" Margin="5 5 40 5"></TextBlock>
 
                 <TextBlock Style="{StaticResource TbkBody}" Text="Date:"></TextBlock>
                 <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding Date,StringFormat=MM/dd/yyyy}" Margin="5 5 40 5"></TextBlock>
@@ -46,7 +46,7 @@
                     <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding Routes.Airports1.IATACode}" Margin="5 5 40 5"/>
 
                     <TextBlock Style="{StaticResource TbkBody}" Text="Cabin type:"/>
-                    <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding CabinPrice}" Margin="5 5 40 5"/>
+                    <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding CabinPriceName}" Margin="5 5 40 5"/>
 
                     <TextBlock Style="{StaticResource TbkBody}" Text="Date:"/>
                     <TextBlock Style="{StaticResource TbkBody}" FontWeight="Bold" Text="{Binding Date,StringFormat=MM/dd/yyyy}" Margin="5 5 40 5"/>
@@ -78,7 +78,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Style="{StaticResource TbkBody}" Text="Passport number"/>
-                        <TextBox Width="120" PreviewTextInput="OnlyDigit" Name="TbxPassportNumber" MaxLength="9"/>
+                        <TextBox Width="120" PreviewTextInput="OnlyDigit" Name="TbxPassportNumber" MaxLength="9" PreviewKeyDown="TextBox_PreviewKeyDown"/>
                     </StackPanel>
                 </StackPanel>
 
@@ -89,7 +89,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Style="{StaticResource TbkBody}" Text="Passport country"/>
-                        <ComboBox Name="CbxPassportCountry" Width="150" FontSize="13"/>
+                        <ComboBox Name="CbxPassportCountry" Width="150" FontSize="13" DisplayMemberPath="Name"/>
 
                     </StackPanel>
                 </StackPanel>
@@ -101,7 +101,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Style="{StaticResource TbkBody}" Text="Phone"/>
-                        <TextBox Name="TbxPhone" Width="150" PreviewTextInput="OnlyDigit" MaxLength="14"/>
+                        <TextBox Name="TbxPhone" Width="150" PreviewTextInput="OnlyDigit" MaxLength="14" PreviewKeyDown="TextBox_PreviewKeyDown"/>
 
                     </StackPanel>
                 </StackPanel>
@@ -124,12 +124,12 @@
 
             <DataGrid Name="DGPassangers" Grid.Row="1" SelectionChanged="DGPassangers_SelectionChanged">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="First name" Width="*" Binding="{Binding }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Last name" Width="*" Binding="{Binding }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Birthdate" Width="*" Binding="{Binding }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Passport number" Width="1.5*" Binding="{Binding }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Passport country" Width="1.5*" Binding="{Binding }"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Phone" Width="1.2*" Binding="{Binding }"></DataGridTextColumn>
+                    <DataGridTextColumn Header="First name" Width="*" Binding="{Binding Firstname}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Last name" Width="*" Binding="{Binding Lastname}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Birthdate" Width="*" Binding="{Binding Birthdate,StringFormat=MM/dd/yyyy}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Passport number" Width="1.5*" Binding="{Binding PassportNumber}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Passport country" Width="1.5*" Binding="{Binding Countries.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Phone" Width="1.2*" Binding="{Binding Phone}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

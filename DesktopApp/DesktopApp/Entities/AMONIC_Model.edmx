@@ -105,6 +105,7 @@
           <Property Name="PassportCountryID" Type="int" Nullable="false" />
           <Property Name="BookingReference" Type="nvarchar" MaxLength="6" Nullable="false" />
           <Property Name="Confirmed" Type="bit" Nullable="false" />
+          <Property Name="Birthdate" Type="date" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -192,19 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ticket_Schedule">
-          <End Role="Schedules" Type="Self.Schedules" Multiplicity="1" />
-          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Schedules">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Tickets">
-              <PropertyRef Name="ScheduleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ticket_TravelClass">
+        <Association Name="FK_Tickets_CabinTypes">
           <End Role="CabinTypes" Type="Self.CabinTypes" Multiplicity="1" />
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -216,7 +205,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ticket_User">
+        <Association Name="FK_Tickets_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="PassportCountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Schedules">
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedules">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="ScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -288,15 +301,19 @@
             <End Role="Routes" EntitySet="Routes" />
             <End Role="Schedules" EntitySet="Schedules" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ticket_Schedule" Association="Self.FK_Ticket_Schedule">
-            <End Role="Schedules" EntitySet="Schedules" />
-            <End Role="Tickets" EntitySet="Tickets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ticket_TravelClass" Association="Self.FK_Ticket_TravelClass">
+          <AssociationSet Name="FK_Tickets_CabinTypes" Association="Self.FK_Tickets_CabinTypes">
             <End Role="CabinTypes" EntitySet="CabinTypes" />
             <End Role="Tickets" EntitySet="Tickets" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ticket_User" Association="Self.FK_Ticket_User">
+          <AssociationSet Name="FK_Tickets_Countries" Association="Self.FK_Tickets_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Schedules" Association="Self.FK_Tickets_Schedules">
+            <End Role="Schedules" EntitySet="Schedules" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Users" Association="Self.FK_Tickets_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Tickets" EntitySet="Tickets" />
           </AssociationSet>
@@ -341,13 +358,17 @@
             <End Role="Airports" EntitySet="Airports" />
             <End Role="Routes" EntitySet="Routes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ticket_TravelClass" Association="AMONICModel.FK_Ticket_TravelClass">
+          <AssociationSet Name="FK_Tickets_CabinTypes" Association="AMONICModel.FK_Tickets_CabinTypes">
             <End Role="CabinTypes" EntitySet="CabinTypes" />
             <End Role="Tickets" EntitySet="Tickets" />
           </AssociationSet>
           <AssociationSet Name="FK_Office_Country" Association="AMONICModel.FK_Office_Country">
             <End Role="Countries" EntitySet="Countries" />
             <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Countries" Association="AMONICModel.FK_Tickets_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Tickets" EntitySet="Tickets" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Offices" Association="AMONICModel.FK_Users_Offices">
             <End Role="Offices" EntitySet="Offices" />
@@ -361,11 +382,11 @@
             <End Role="Routes" EntitySet="Routes" />
             <End Role="Schedules" EntitySet="Schedules" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ticket_Schedule" Association="AMONICModel.FK_Ticket_Schedule">
+          <AssociationSet Name="FK_Tickets_Schedules" Association="AMONICModel.FK_Tickets_Schedules">
             <End Role="Schedules" EntitySet="Schedules" />
             <End Role="Tickets" EntitySet="Tickets" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ticket_User" Association="AMONICModel.FK_Ticket_User">
+          <AssociationSet Name="FK_Tickets_Users" Association="AMONICModel.FK_Tickets_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Tickets" EntitySet="Tickets" />
           </AssociationSet>
@@ -400,7 +421,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Ticket_TravelClass" FromRole="CabinTypes" ToRole="Tickets" />
+          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_CabinTypes" FromRole="CabinTypes" ToRole="Tickets" />
         </EntityType>
         <EntityType Name="Countries">
           <Key>
@@ -410,6 +431,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Airports" Relationship="AMONICModel.FK_AirPort_Country" FromRole="Countries" ToRole="Airports" />
           <NavigationProperty Name="Offices" Relationship="AMONICModel.FK_Office_Country" FromRole="Countries" ToRole="Offices" />
+          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_Countries" FromRole="Countries" ToRole="Tickets" />
         </EntityType>
         <EntityType Name="Offices">
           <Key>
@@ -458,7 +480,7 @@
           <Property Name="FlightNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Aircrafts" Relationship="AMONICModel.FK_Schedule_AirCraft" FromRole="Schedules" ToRole="Aircrafts" />
           <NavigationProperty Name="Routes" Relationship="AMONICModel.FK_Schedule_Routes" FromRole="Schedules" ToRole="Routes" />
-          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Ticket_Schedule" FromRole="Schedules" ToRole="Tickets" />
+          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_Schedules" FromRole="Schedules" ToRole="Tickets" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -486,9 +508,11 @@
           <Property Name="PassportCountryID" Type="Int32" Nullable="false" />
           <Property Name="BookingReference" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="Confirmed" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="CabinTypes" Relationship="AMONICModel.FK_Ticket_TravelClass" FromRole="Tickets" ToRole="CabinTypes" />
-          <NavigationProperty Name="Schedules" Relationship="AMONICModel.FK_Ticket_Schedule" FromRole="Tickets" ToRole="Schedules" />
-          <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Ticket_User" FromRole="Tickets" ToRole="Users" />
+          <Property Name="Birthdate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CabinTypes" Relationship="AMONICModel.FK_Tickets_CabinTypes" FromRole="Tickets" ToRole="CabinTypes" />
+          <NavigationProperty Name="Countries" Relationship="AMONICModel.FK_Tickets_Countries" FromRole="Tickets" ToRole="Countries" />
+          <NavigationProperty Name="Schedules" Relationship="AMONICModel.FK_Tickets_Schedules" FromRole="Tickets" ToRole="Schedules" />
+          <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Tickets_Users" FromRole="Tickets" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -505,7 +529,7 @@
           <Property Name="Active" Type="Boolean" />
           <NavigationProperty Name="Offices" Relationship="AMONICModel.FK_Users_Offices" FromRole="Users" ToRole="Offices" />
           <NavigationProperty Name="Roles" Relationship="AMONICModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
-          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Ticket_User" FromRole="Users" ToRole="Tickets" />
+          <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_Users" FromRole="Users" ToRole="Tickets" />
         </EntityType>
         <Association Name="FK_Schedule_AirCraft">
           <End Type="AMONICModel.Aircrafts" Role="Aircrafts" Multiplicity="1" />
@@ -555,7 +579,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ticket_TravelClass">
+        <Association Name="FK_Tickets_CabinTypes">
           <End Type="AMONICModel.CabinTypes" Role="CabinTypes" Multiplicity="1" />
           <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -576,6 +600,18 @@
             </Principal>
             <Dependent Role="Offices">
               <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Countries">
+          <End Type="AMONICModel.Countries" Role="Countries" Multiplicity="1" />
+          <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="PassportCountryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -615,7 +651,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ticket_Schedule">
+        <Association Name="FK_Tickets_Schedules">
           <End Type="AMONICModel.Schedules" Role="Schedules" Multiplicity="1" />
           <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -627,7 +663,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ticket_User">
+        <Association Name="FK_Tickets_Users">
           <End Type="AMONICModel.Users" Role="Users" Multiplicity="1" />
           <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -639,7 +675,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -741,6 +777,7 @@
           <EntitySetMapping Name="Tickets">
             <EntityTypeMapping TypeName="AMONICModel.Tickets">
               <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
                 <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
                 <ScalarProperty Name="BookingReference" ColumnName="BookingReference" />
                 <ScalarProperty Name="PassportCountryID" ColumnName="PassportCountryID" />

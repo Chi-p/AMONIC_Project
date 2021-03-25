@@ -26,8 +26,10 @@ namespace DesktopApp.Entities
         public int PassportCountryID { get; set; }
         public string BookingReference { get; set; }
         public bool Confirmed { get; set; }
+        public Nullable<System.DateTime> Birthdate { get; set; }
     
         public virtual CabinTypes CabinTypes { get; set; }
+        public virtual Countries Countries { get; set; }
         public virtual Schedules Schedules { get; set; }
         public virtual Users Users { get; set; }
     }
