@@ -1,5 +1,9 @@
 ﻿
 FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\App.xaml;;
+FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Pages\AdminPages\AdminMenuPage.xaml;;
+FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Pages\UserPages\UserMenuPage.xaml;;
+FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Windows\AdditionalWindows\AddUserWindow.xaml;;
+FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Windows\AdditionalWindows\EditRoleUserWindow.xaml;;
 FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Windows\MainWindows\MainWindow.xaml;;
 FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Windows\AdditionalWindows\CrashReportWindow.xaml;;
 FF:\Programming\repos\AMONIC_Project\DesktopApp\DesktopApp\Windows\MainWindows\AuthorizationWindow.xaml;;
