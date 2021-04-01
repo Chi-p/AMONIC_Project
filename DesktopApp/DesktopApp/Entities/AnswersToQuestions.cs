@@ -12,18 +12,14 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class CabinTypes
+    public partial class AnswersToQuestions
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CabinTypes()
-        {
-            this.Surveys = new HashSet<Surveys>();
-        }
+        public int SurveyId { get; set; }
+        public int QuestionId { get; set; }
+        public int AnswerOptionId { get; set; }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Surveys> Surveys { get; set; }
+        public virtual AnswerOptions AnswerOptions { get; set; }
+        public virtual Questions Questions { get; set; }
+        public virtual Surveys Surveys { get; set; }
     }
 }

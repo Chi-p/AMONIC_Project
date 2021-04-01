@@ -19,14 +19,8 @@ namespace DesktopApp.Entities
         /// </summary>
         public static Frame MainFrame;
         /// <summary>
-        /// User saved at login
-        /// </summary>
-        public static Users CurrentUser;
-        /// <summary>
         /// Message class
         /// </summary>
         public static MessagesClass Message = new MessagesClass();
-
-        public static bool IsAddTickets = false;
     }
 }

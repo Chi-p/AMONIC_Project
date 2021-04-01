@@ -1,5 +1,4 @@
 ﻿using DesktopApp.Entities;
-using DesktopApp.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +30,6 @@ namespace DesktopApp.Windows
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
             AppData.MainFrame = MainFrame;
-            AppData.MainFrame.Navigate(new SearchForFlightsPage());
         }
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)

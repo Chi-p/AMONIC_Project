@@ -25,16 +25,14 @@ namespace DesktopApp.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Aircrafts> Aircrafts { get; set; }
         public virtual DbSet<Airports> Airports { get; set; }
+        public virtual DbSet<AnswerOptions> AnswerOptions { get; set; }
+        public virtual DbSet<AnswersToQuestions> AnswersToQuestions { get; set; }
         public virtual DbSet<CabinTypes> CabinTypes { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
-        public virtual DbSet<Offices> Offices { get; set; }
-        public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<Routes> Routes { get; set; }
-        public virtual DbSet<Schedules> Schedules { get; set; }
+        public virtual DbSet<Genders> Genders { get; set; }
+        public virtual DbSet<Questions> Questions { get; set; }
+        public virtual DbSet<Surveys> Surveys { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Tickets> Tickets { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
     }
 }

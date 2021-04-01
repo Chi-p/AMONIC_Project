@@ -12,22 +12,26 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Aircrafts
+    public partial class Surveys
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Aircrafts()
+        public Surveys()
         {
-            this.Schedules = new HashSet<Schedules>();
+            this.AnswersToQuestions = new HashSet<AnswersToQuestions>();
         }
     
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string MakeModel { get; set; }
-        public int TotalSeats { get; set; }
-        public int EconomySeats { get; set; }
-        public int BusinessSeats { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> DepartureId { get; set; }
+        public Nullable<int> ArrivalId { get; set; }
+        public Nullable<int> Age { get; set; }
+        public Nullable<int> CabinTypeId { get; set; }
+        public string GenderCode { get; set; }
     
+        public virtual Airports Airports { get; set; }
+        public virtual Airports Airports1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Schedules> Schedules { get; set; }
+        public virtual ICollection<AnswersToQuestions> AnswersToQuestions { get; set; }
+        public virtual CabinTypes CabinTypes { get; set; }
+        public virtual Genders Genders { get; set; }
     }
 }

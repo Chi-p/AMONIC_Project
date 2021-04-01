@@ -17,19 +17,19 @@ namespace DesktopApp.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Airports()
         {
-            this.Routes = new HashSet<Routes>();
-            this.Routes1 = new HashSet<Routes>();
+            this.Surveys = new HashSet<Surveys>();
+            this.Surveys1 = new HashSet<Surveys>();
         }
     
-        public int ID { get; set; }
-        public int CountryID { get; set; }
+        public int Id { get; set; }
+        public int CountryId { get; set; }
         public string IATACode { get; set; }
         public string Name { get; set; }
     
         public virtual Countries Countries { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Routes> Routes { get; set; }
+        public virtual ICollection<Surveys> Surveys { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Routes> Routes1 { get; set; }
+        public virtual ICollection<Surveys> Surveys1 { get; set; }
     }
 }

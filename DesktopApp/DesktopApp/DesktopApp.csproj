@@ -69,18 +69,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\MessagesClass.cs" />
-    <Page Include="Pages\BookingConfirmationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SearchForFlightsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\BillingConfirmWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,9 +76,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Entities\Aircrafts.cs">
-      <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Airports.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
@@ -110,6 +95,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AMONIC_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\AnswerOptions.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AnswersToQuestions.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\AppData.cs" />
     <Compile Include="Entities\CabinTypes.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
@@ -117,36 +108,17 @@
     <Compile Include="Entities\Countries.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Offices.cs">
+    <Compile Include="Entities\Genders.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Roles.cs">
+    <Compile Include="Entities\Questions.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Routes.cs">
+    <Compile Include="Entities\Surveys.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Schedules.cs">
-      <DependentUpon>AMONIC_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\SchedulesPartial.cs" />
     <Compile Include="Entities\sysdiagrams.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Tickets.cs">
-      <DependentUpon>AMONIC_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Users.cs">
-      <DependentUpon>AMONIC_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\BookingConfirmationPage.xaml.cs">
-      <DependentUpon>BookingConfirmationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SearchForFlightsPage.xaml.cs">
-      <DependentUpon>SearchForFlightsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\BillingConfirmWindow.xaml.cs">
-      <DependentUpon>BillingConfirmWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -239,6 +211,9 @@
       <DependentUpon>AMONIC_Model.edmx</DependentUpon>
       <LastGenOutput>AMONIC_Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,23 +12,18 @@ namespace DesktopApp.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Routes
+    public partial class Questions
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Routes()
+        public Questions()
         {
-            this.Schedules = new HashSet<Schedules>();
+            this.AnswersToQuestions = new HashSet<AnswersToQuestions>();
         }
     
-        public int ID { get; set; }
-        public int DepartureAirportID { get; set; }
-        public int ArrivalAirportID { get; set; }
-        public int Distance { get; set; }
-        public int FlightTime { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     
-        public virtual Airports Airports { get; set; }
-        public virtual Airports Airports1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Schedules> Schedules { get; set; }
+        public virtual ICollection<AnswersToQuestions> AnswersToQuestions { get; set; }
     }
 }

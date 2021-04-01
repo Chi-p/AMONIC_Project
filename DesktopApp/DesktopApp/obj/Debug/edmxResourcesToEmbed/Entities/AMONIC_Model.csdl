@@ -1,156 +1,128 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AMONICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="AmonicEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Aircrafts" EntityType="AMONICModel.Aircrafts" />
     <EntitySet Name="Airports" EntityType="AMONICModel.Airports" />
+    <EntitySet Name="AnswerOptions" EntityType="AMONICModel.AnswerOptions" />
+    <EntitySet Name="AnswersToQuestions" EntityType="AMONICModel.AnswersToQuestions" />
     <EntitySet Name="CabinTypes" EntityType="AMONICModel.CabinTypes" />
     <EntitySet Name="Countries" EntityType="AMONICModel.Countries" />
-    <EntitySet Name="Offices" EntityType="AMONICModel.Offices" />
-    <EntitySet Name="Roles" EntityType="AMONICModel.Roles" />
-    <EntitySet Name="Routes" EntityType="AMONICModel.Routes" />
-    <EntitySet Name="Schedules" EntityType="AMONICModel.Schedules" />
+    <EntitySet Name="Genders" EntityType="AMONICModel.Genders" />
+    <EntitySet Name="Questions" EntityType="AMONICModel.Questions" />
+    <EntitySet Name="Surveys" EntityType="AMONICModel.Surveys" />
     <EntitySet Name="sysdiagrams" EntityType="AMONICModel.sysdiagrams" />
-    <EntitySet Name="Tickets" EntityType="AMONICModel.Tickets" />
-    <EntitySet Name="Users" EntityType="AMONICModel.Users" />
-    <AssociationSet Name="FK_Schedule_AirCraft" Association="AMONICModel.FK_Schedule_AirCraft">
-      <End Role="Aircrafts" EntitySet="Aircrafts" />
-      <End Role="Schedules" EntitySet="Schedules" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AirPort_Country" Association="AMONICModel.FK_AirPort_Country">
+    <AssociationSet Name="FK_Airports_Countries" Association="AMONICModel.FK_Airports_Countries">
       <End Role="Countries" EntitySet="Countries" />
       <End Role="Airports" EntitySet="Airports" />
     </AssociationSet>
-    <AssociationSet Name="FK_Routes_Airports2" Association="AMONICModel.FK_Routes_Airports2">
+    <AssociationSet Name="FK_Surveys_Airports" Association="AMONICModel.FK_Surveys_Airports">
       <End Role="Airports" EntitySet="Airports" />
-      <End Role="Routes" EntitySet="Routes" />
+      <End Role="Surveys" EntitySet="Surveys" />
     </AssociationSet>
-    <AssociationSet Name="FK_Routes_Airports3" Association="AMONICModel.FK_Routes_Airports3">
+    <AssociationSet Name="FK_Surveys_Airports1" Association="AMONICModel.FK_Surveys_Airports1">
       <End Role="Airports" EntitySet="Airports" />
-      <End Role="Routes" EntitySet="Routes" />
+      <End Role="Surveys" EntitySet="Surveys" />
     </AssociationSet>
-    <AssociationSet Name="FK_Tickets_CabinTypes" Association="AMONICModel.FK_Tickets_CabinTypes">
+    <AssociationSet Name="FK_AnswersToQuestions_AnswerOptions" Association="AMONICModel.FK_AnswersToQuestions_AnswerOptions">
+      <End Role="AnswerOptions" EntitySet="AnswerOptions" />
+      <End Role="AnswersToQuestions" EntitySet="AnswersToQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnswersToQuestions_Questions" Association="AMONICModel.FK_AnswersToQuestions_Questions">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="AnswersToQuestions" EntitySet="AnswersToQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnswersToQuestions_Surveys" Association="AMONICModel.FK_AnswersToQuestions_Surveys">
+      <End Role="Surveys" EntitySet="Surveys" />
+      <End Role="AnswersToQuestions" EntitySet="AnswersToQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Surveys_CabinTypes" Association="AMONICModel.FK_Surveys_CabinTypes">
       <End Role="CabinTypes" EntitySet="CabinTypes" />
-      <End Role="Tickets" EntitySet="Tickets" />
+      <End Role="Surveys" EntitySet="Surveys" />
     </AssociationSet>
-    <AssociationSet Name="FK_Office_Country" Association="AMONICModel.FK_Office_Country">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="Offices" EntitySet="Offices" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Tickets_Countries" Association="AMONICModel.FK_Tickets_Countries">
-      <End Role="Countries" EntitySet="Countries" />
-      <End Role="Tickets" EntitySet="Tickets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_Offices" Association="AMONICModel.FK_Users_Offices">
-      <End Role="Offices" EntitySet="Offices" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Users_Roles" Association="AMONICModel.FK_Users_Roles">
-      <End Role="Roles" EntitySet="Roles" />
-      <End Role="Users" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Schedule_Routes" Association="AMONICModel.FK_Schedule_Routes">
-      <End Role="Routes" EntitySet="Routes" />
-      <End Role="Schedules" EntitySet="Schedules" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Tickets_Schedules" Association="AMONICModel.FK_Tickets_Schedules">
-      <End Role="Schedules" EntitySet="Schedules" />
-      <End Role="Tickets" EntitySet="Tickets" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Tickets_Users" Association="AMONICModel.FK_Tickets_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Tickets" EntitySet="Tickets" />
+    <AssociationSet Name="FK_Surveys_Genders" Association="AMONICModel.FK_Surveys_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Surveys" EntitySet="Surveys" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Aircrafts">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="MakeModel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="TotalSeats" Type="Int32" Nullable="false" />
-    <Property Name="EconomySeats" Type="Int32" Nullable="false" />
-    <Property Name="BusinessSeats" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Schedules" Relationship="AMONICModel.FK_Schedule_AirCraft" FromRole="Aircrafts" ToRole="Schedules" />
-  </EntityType>
   <EntityType Name="Airports">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CountryID" Type="Int32" Nullable="false" />
-    <Property Name="IATACode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Countries" Relationship="AMONICModel.FK_AirPort_Country" FromRole="Airports" ToRole="Countries" />
-    <NavigationProperty Name="Routes" Relationship="AMONICModel.FK_Routes_Airports2" FromRole="Airports" ToRole="Routes" />
-    <NavigationProperty Name="Routes1" Relationship="AMONICModel.FK_Routes_Airports3" FromRole="Airports" ToRole="Routes" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="IATACode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Countries" Relationship="AMONICModel.FK_Airports_Countries" FromRole="Airports" ToRole="Countries" />
+    <NavigationProperty Name="Surveys" Relationship="AMONICModel.FK_Surveys_Airports" FromRole="Airports" ToRole="Surveys" />
+    <NavigationProperty Name="Surveys1" Relationship="AMONICModel.FK_Surveys_Airports1" FromRole="Airports" ToRole="Surveys" />
+  </EntityType>
+  <EntityType Name="AnswerOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AnswersToQuestions" Relationship="AMONICModel.FK_AnswersToQuestions_AnswerOptions" FromRole="AnswerOptions" ToRole="AnswersToQuestions" />
+  </EntityType>
+  <EntityType Name="AnswersToQuestions">
+    <Key>
+      <PropertyRef Name="SurveyId" />
+      <PropertyRef Name="QuestionId" />
+      <PropertyRef Name="AnswerOptionId" />
+    </Key>
+    <Property Name="SurveyId" Type="Int32" Nullable="false" />
+    <Property Name="QuestionId" Type="Int32" Nullable="false" />
+    <Property Name="AnswerOptionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AnswerOptions" Relationship="AMONICModel.FK_AnswersToQuestions_AnswerOptions" FromRole="AnswersToQuestions" ToRole="AnswerOptions" />
+    <NavigationProperty Name="Questions" Relationship="AMONICModel.FK_AnswersToQuestions_Questions" FromRole="AnswersToQuestions" ToRole="Questions" />
+    <NavigationProperty Name="Surveys" Relationship="AMONICModel.FK_AnswersToQuestions_Surveys" FromRole="AnswersToQuestions" ToRole="Surveys" />
   </EntityType>
   <EntityType Name="CabinTypes">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_CabinTypes" FromRole="CabinTypes" ToRole="Tickets" />
+    <NavigationProperty Name="Surveys" Relationship="AMONICModel.FK_Surveys_CabinTypes" FromRole="CabinTypes" ToRole="Surveys" />
   </EntityType>
   <EntityType Name="Countries">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Airports" Relationship="AMONICModel.FK_AirPort_Country" FromRole="Countries" ToRole="Airports" />
-    <NavigationProperty Name="Offices" Relationship="AMONICModel.FK_Office_Country" FromRole="Countries" ToRole="Offices" />
-    <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_Countries" FromRole="Countries" ToRole="Tickets" />
+    <NavigationProperty Name="Airports" Relationship="AMONICModel.FK_Airports_Countries" FromRole="Countries" ToRole="Airports" />
   </EntityType>
-  <EntityType Name="Offices">
+  <EntityType Name="Genders">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Code" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CountryID" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Contact" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Countries" Relationship="AMONICModel.FK_Office_Country" FromRole="Offices" ToRole="Countries" />
-    <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Users_Offices" FromRole="Offices" ToRole="Users" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Surveys" Relationship="AMONICModel.FK_Surveys_Genders" FromRole="Genders" ToRole="Surveys" />
   </EntityType>
-  <EntityType Name="Roles">
+  <EntityType Name="Questions">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AnswersToQuestions" Relationship="AMONICModel.FK_AnswersToQuestions_Questions" FromRole="Questions" ToRole="AnswersToQuestions" />
   </EntityType>
-  <EntityType Name="Routes">
+  <EntityType Name="Surveys">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DepartureAirportID" Type="Int32" Nullable="false" />
-    <Property Name="ArrivalAirportID" Type="Int32" Nullable="false" />
-    <Property Name="Distance" Type="Int32" Nullable="false" />
-    <Property Name="FlightTime" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Airports" Relationship="AMONICModel.FK_Routes_Airports2" FromRole="Routes" ToRole="Airports" />
-    <NavigationProperty Name="Airports1" Relationship="AMONICModel.FK_Routes_Airports3" FromRole="Routes" ToRole="Airports" />
-    <NavigationProperty Name="Schedules" Relationship="AMONICModel.FK_Schedule_Routes" FromRole="Routes" ToRole="Schedules" />
-  </EntityType>
-  <EntityType Name="Schedules">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Time" Type="Time" Nullable="false" Precision="5" />
-    <Property Name="AircraftID" Type="Int32" Nullable="false" />
-    <Property Name="RouteID" Type="Int32" Nullable="false" />
-    <Property Name="EconomyPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="Confirmed" Type="Boolean" Nullable="false" />
-    <Property Name="FlightNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Aircrafts" Relationship="AMONICModel.FK_Schedule_AirCraft" FromRole="Schedules" ToRole="Aircrafts" />
-    <NavigationProperty Name="Routes" Relationship="AMONICModel.FK_Schedule_Routes" FromRole="Schedules" ToRole="Routes" />
-    <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_Schedules" FromRole="Schedules" ToRole="Tickets" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartureId" Type="Int32" />
+    <Property Name="ArrivalId" Type="Int32" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="CabinTypeId" Type="Int32" />
+    <Property Name="GenderCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Airports" Relationship="AMONICModel.FK_Surveys_Airports" FromRole="Surveys" ToRole="Airports" />
+    <NavigationProperty Name="Airports1" Relationship="AMONICModel.FK_Surveys_Airports1" FromRole="Surveys" ToRole="Airports" />
+    <NavigationProperty Name="AnswersToQuestions" Relationship="AMONICModel.FK_AnswersToQuestions_Surveys" FromRole="Surveys" ToRole="AnswersToQuestions" />
+    <NavigationProperty Name="CabinTypes" Relationship="AMONICModel.FK_Surveys_CabinTypes" FromRole="Surveys" ToRole="CabinTypes" />
+    <NavigationProperty Name="Genders" Relationship="AMONICModel.FK_Surveys_Genders" FromRole="Surveys" ToRole="Genders" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -162,186 +134,99 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="Tickets">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="ScheduleID" Type="Int32" Nullable="false" />
-    <Property Name="CabinTypeID" Type="Int32" Nullable="false" />
-    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="true" />
-    <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="true" />
-    <Property Name="PassportCountryID" Type="Int32" Nullable="false" />
-    <Property Name="BookingReference" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
-    <Property Name="Confirmed" Type="Boolean" Nullable="false" />
-    <Property Name="Birthdate" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="CabinTypes" Relationship="AMONICModel.FK_Tickets_CabinTypes" FromRole="Tickets" ToRole="CabinTypes" />
-    <NavigationProperty Name="Countries" Relationship="AMONICModel.FK_Tickets_Countries" FromRole="Tickets" ToRole="Countries" />
-    <NavigationProperty Name="Schedules" Relationship="AMONICModel.FK_Tickets_Schedules" FromRole="Tickets" ToRole="Schedules" />
-    <NavigationProperty Name="Users" Relationship="AMONICModel.FK_Tickets_Users" FromRole="Tickets" ToRole="Users" />
-  </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RoleID" Type="Int32" Nullable="false" />
-    <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="OfficeID" Type="Int32" />
-    <Property Name="Birthdate" Type="DateTime" Precision="0" />
-    <Property Name="Active" Type="Boolean" />
-    <NavigationProperty Name="Offices" Relationship="AMONICModel.FK_Users_Offices" FromRole="Users" ToRole="Offices" />
-    <NavigationProperty Name="Roles" Relationship="AMONICModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
-    <NavigationProperty Name="Tickets" Relationship="AMONICModel.FK_Tickets_Users" FromRole="Users" ToRole="Tickets" />
-  </EntityType>
-  <Association Name="FK_Schedule_AirCraft">
-    <End Type="AMONICModel.Aircrafts" Role="Aircrafts" Multiplicity="1" />
-    <End Type="AMONICModel.Schedules" Role="Schedules" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aircrafts">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Schedules">
-        <PropertyRef Name="AircraftID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AirPort_Country">
+  <Association Name="FK_Airports_Countries">
     <End Type="AMONICModel.Countries" Role="Countries" Multiplicity="1" />
     <End Type="AMONICModel.Airports" Role="Airports" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Countries">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Airports">
-        <PropertyRef Name="CountryID" />
+        <PropertyRef Name="CountryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Routes_Airports2">
-    <End Type="AMONICModel.Airports" Role="Airports" Multiplicity="1" />
-    <End Type="AMONICModel.Routes" Role="Routes" Multiplicity="*" />
+  <Association Name="FK_Surveys_Airports">
+    <End Type="AMONICModel.Airports" Role="Airports" Multiplicity="0..1" />
+    <End Type="AMONICModel.Surveys" Role="Surveys" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Airports">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Routes">
-        <PropertyRef Name="DepartureAirportID" />
+      <Dependent Role="Surveys">
+        <PropertyRef Name="DepartureId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Routes_Airports3">
-    <End Type="AMONICModel.Airports" Role="Airports" Multiplicity="1" />
-    <End Type="AMONICModel.Routes" Role="Routes" Multiplicity="*" />
+  <Association Name="FK_Surveys_Airports1">
+    <End Type="AMONICModel.Airports" Role="Airports" Multiplicity="0..1" />
+    <End Type="AMONICModel.Surveys" Role="Surveys" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Airports">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Routes">
-        <PropertyRef Name="ArrivalAirportID" />
+      <Dependent Role="Surveys">
+        <PropertyRef Name="ArrivalId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Tickets_CabinTypes">
-    <End Type="AMONICModel.CabinTypes" Role="CabinTypes" Multiplicity="1" />
-    <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
+  <Association Name="FK_AnswersToQuestions_AnswerOptions">
+    <End Type="AMONICModel.AnswerOptions" Role="AnswerOptions" Multiplicity="1" />
+    <End Type="AMONICModel.AnswersToQuestions" Role="AnswersToQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AnswerOptions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnswersToQuestions">
+        <PropertyRef Name="AnswerOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnswersToQuestions_Questions">
+    <End Type="AMONICModel.Questions" Role="Questions" Multiplicity="1" />
+    <End Type="AMONICModel.AnswersToQuestions" Role="AnswersToQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnswersToQuestions">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnswersToQuestions_Surveys">
+    <End Type="AMONICModel.Surveys" Role="Surveys" Multiplicity="1" />
+    <End Type="AMONICModel.AnswersToQuestions" Role="AnswersToQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Surveys">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnswersToQuestions">
+        <PropertyRef Name="SurveyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Surveys_CabinTypes">
+    <End Type="AMONICModel.CabinTypes" Role="CabinTypes" Multiplicity="0..1" />
+    <End Type="AMONICModel.Surveys" Role="Surveys" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CabinTypes">
-        <PropertyRef Name="ID" />
+        <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Tickets">
-        <PropertyRef Name="CabinTypeID" />
+      <Dependent Role="Surveys">
+        <PropertyRef Name="CabinTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Office_Country">
-    <End Type="AMONICModel.Countries" Role="Countries" Multiplicity="1" />
-    <End Type="AMONICModel.Offices" Role="Offices" Multiplicity="*" />
+  <Association Name="FK_Surveys_Genders">
+    <End Type="AMONICModel.Genders" Role="Genders" Multiplicity="0..1" />
+    <End Type="AMONICModel.Surveys" Role="Surveys" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Countries">
-        <PropertyRef Name="ID" />
+      <Principal Role="Genders">
+        <PropertyRef Name="Code" />
       </Principal>
-      <Dependent Role="Offices">
-        <PropertyRef Name="CountryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Tickets_Countries">
-    <End Type="AMONICModel.Countries" Role="Countries" Multiplicity="1" />
-    <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Countries">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Tickets">
-        <PropertyRef Name="PassportCountryID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Users_Offices">
-    <End Type="AMONICModel.Offices" Role="Offices" Multiplicity="0..1" />
-    <End Type="AMONICModel.Users" Role="Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Offices">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="OfficeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Users_Roles">
-    <End Type="AMONICModel.Roles" Role="Roles" Multiplicity="1" />
-    <End Type="AMONICModel.Users" Role="Users" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Users">
-        <PropertyRef Name="RoleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Schedule_Routes">
-    <End Type="AMONICModel.Routes" Role="Routes" Multiplicity="1" />
-    <End Type="AMONICModel.Schedules" Role="Schedules" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Routes">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Schedules">
-        <PropertyRef Name="RouteID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Tickets_Schedules">
-    <End Type="AMONICModel.Schedules" Role="Schedules" Multiplicity="1" />
-    <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Schedules">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Tickets">
-        <PropertyRef Name="ScheduleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Tickets_Users">
-    <End Type="AMONICModel.Users" Role="Users" Multiplicity="1" />
-    <End Type="AMONICModel.Tickets" Role="Tickets" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Tickets">
-        <PropertyRef Name="UserID" />
+      <Dependent Role="Surveys">
+        <PropertyRef Name="GenderCode" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
