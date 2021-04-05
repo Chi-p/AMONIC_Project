@@ -1,4 +1,5 @@
 ﻿using DesktopApp.Entities;
+using DesktopApp.Page;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,11 +31,20 @@ namespace DesktopApp.Windows
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
             AppData.MainFrame = MainFrame;
+            AppData.MainFrame.Navigate(new ResultsSummaryPage());
         }
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
 
+        }
+
+        private void MIExit_Click(object sender, RoutedEventArgs e)
+        {
+            if (AppData.Message.MessageQuestion("Are you sure you want to close application?") == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

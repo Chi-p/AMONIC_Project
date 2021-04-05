@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="AMONICModel.Genders" Width="1.5" PointX="3" PointY="7.25" />
         <EntityTypeShape EntityType="AMONICModel.Questions" Width="1.5" PointX="5.25" PointY="4.875" />
         <EntityTypeShape EntityType="AMONICModel.Surveys" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="AMONICModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" />
         <AssociationConnector Association="AMONICModel.FK_Airports_Countries" />
         <AssociationConnector Association="AMONICModel.FK_Surveys_Airports" />
         <AssociationConnector Association="AMONICModel.FK_Surveys_Airports1" />

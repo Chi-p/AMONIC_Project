@@ -65,16 +65,6 @@
     <Property Name="CabinTypeId" Type="int" />
     <Property Name="GenderCode" Type="nvarchar" MaxLength="1" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <Association Name="FK_Airports_Countries">
     <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
     <End Role="Airports" Type="Self.Airports" Multiplicity="*" />
@@ -180,7 +170,6 @@
     <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Surveys" EntityType="Self.Surveys" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Airports_Countries" Association="Self.FK_Airports_Countries">
       <End Role="Countries" EntitySet="Countries" />
       <End Role="Airports" EntitySet="Airports" />

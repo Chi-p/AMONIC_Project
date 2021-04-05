@@ -70,16 +70,6 @@
           <Property Name="CabinTypeId" Type="int" />
           <Property Name="GenderCode" Type="nvarchar" MaxLength="1" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <Association Name="FK_Airports_Countries">
           <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
           <End Role="Airports" Type="Self.Airports" Multiplicity="*" />
@@ -185,7 +175,6 @@
           <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Surveys" EntityType="Self.Surveys" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Airports_Countries" Association="Self.FK_Airports_Countries">
             <End Role="Countries" EntitySet="Countries" />
             <End Role="Airports" EntitySet="Airports" />
@@ -232,7 +221,6 @@
           <EntitySet Name="Genders" EntityType="AMONICModel.Genders" />
           <EntitySet Name="Questions" EntityType="AMONICModel.Questions" />
           <EntitySet Name="Surveys" EntityType="AMONICModel.Surveys" />
-          <EntitySet Name="sysdiagrams" EntityType="AMONICModel.sysdiagrams" />
           <AssociationSet Name="FK_Airports_Countries" Association="AMONICModel.FK_Airports_Countries">
             <End Role="Countries" EntitySet="Countries" />
             <End Role="Airports" EntitySet="Airports" />
@@ -346,16 +334,6 @@
           <NavigationProperty Name="AnswersToQuestions" Relationship="AMONICModel.FK_AnswersToQuestions_Surveys" FromRole="Surveys" ToRole="AnswersToQuestions" />
           <NavigationProperty Name="CabinTypes" Relationship="AMONICModel.FK_Surveys_CabinTypes" FromRole="Surveys" ToRole="CabinTypes" />
           <NavigationProperty Name="Genders" Relationship="AMONICModel.FK_Surveys_Genders" FromRole="Surveys" ToRole="Genders" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Airports_Countries">
           <End Type="AMONICModel.Countries" Role="Countries" Multiplicity="1" />
@@ -527,17 +505,6 @@
                 <ScalarProperty Name="ArrivalId" ColumnName="ArrivalId" />
                 <ScalarProperty Name="DepartureId" ColumnName="DepartureId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="AMONICModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

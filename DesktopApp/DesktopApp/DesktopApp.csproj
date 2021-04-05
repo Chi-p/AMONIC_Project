@@ -69,6 +69,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\MessagesClass.cs" />
+    <Page Include="Page\DetailedResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Page\ResultsSummaryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -117,8 +125,11 @@
     <Compile Include="Entities\Surveys.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\sysdiagrams.cs">
-      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    <Compile Include="Page\DetailedResultsPage.xaml.cs">
+      <DependentUpon>DetailedResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page\ResultsSummaryPage.xaml.cs">
+      <DependentUpon>ResultsSummaryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -212,8 +223,6 @@
       <LastGenOutput>AMONIC_Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

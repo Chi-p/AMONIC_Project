@@ -33,6 +33,5 @@ namespace DesktopApp.Entities
         public virtual DbSet<Genders> Genders { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Surveys> Surveys { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

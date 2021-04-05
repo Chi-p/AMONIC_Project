@@ -6,8 +6,31 @@
         xmlns:local="clr-namespace:DesktopApp.Windows"
         mc:Ignorable="d"
         Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
-        Height="800" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Frame Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu BorderThickness="0 0 0 1" BorderBrush="Black">
+            <MenuItem>
+                <MenuItem.Header>
+                    <TextBlock Text="View Results Summary" Style="{StaticResource TbkBody}" Margin="5 2"/>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem>
+                <MenuItem.Header>
+                    <TextBlock Text="View Detailed Results" Style="{StaticResource TbkBody}" Margin="5 2"/>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Name="MIExit" Click="MIExit_Click">
+                <MenuItem.Header>
+                    <TextBlock Text="Exit" Style="{StaticResource TbkBody}" Margin="5 2"/>
+                </MenuItem.Header>
+            </MenuItem>
+        </Menu>
+
+        <Frame Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden" Grid.Row="1"/>
     </Grid>
 </Window>
