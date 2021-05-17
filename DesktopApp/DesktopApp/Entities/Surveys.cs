@@ -26,6 +26,7 @@ namespace DesktopApp.Entities
         public Nullable<int> Age { get; set; }
         public Nullable<int> CabinTypeId { get; set; }
         public string GenderCode { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual Airports Airports { get; set; }
         public virtual Airports Airports1 { get; set; }

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/htmlpage1.html")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/amonic_model.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/amonic_model.tt")]
 

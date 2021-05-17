@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DesktopApp.Windows"
         mc:Ignorable="d"
         Title="{Binding ElementName=MainFrame, Path=Content.Title}" 
-        Height="600" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Height="600" Width="1000" WindowStartupLocation="CenterScreen" MinHeight="600" MinWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -14,12 +14,12 @@
         </Grid.RowDefinitions>
         
         <Menu BorderThickness="0 0 0 1" BorderBrush="Black">
-            <MenuItem>
+            <MenuItem Name="MIResultsSummary" Click="MIResultsSummary_Click">
                 <MenuItem.Header>
                     <TextBlock Text="View Results Summary" Style="{StaticResource TbkBody}" Margin="5 2"/>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem>
+            <MenuItem Name="MIDetailedResults" Click="MIDetailedResults_Click">
                 <MenuItem.Header>
                     <TextBlock Text="View Detailed Results" Style="{StaticResource TbkBody}" Margin="5 2"/>
                 </MenuItem.Header>

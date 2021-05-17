@@ -69,11 +69,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\MessagesClass.cs" />
-    <Page Include="Page\DetailedResultsPage.xaml">
+    <Page Include="Pages\DetailedResultsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page\ResultsSummaryPage.xaml">
+    <Page Include="Pages\ResultsSummaryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,10 +125,13 @@
     <Compile Include="Entities\Surveys.cs">
       <DependentUpon>AMONIC_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Page\DetailedResultsPage.xaml.cs">
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>AMONIC_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DetailedResultsPage.xaml.cs">
       <DependentUpon>DetailedResultsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\ResultsSummaryPage.xaml.cs">
+    <Compile Include="Pages\ResultsSummaryPage.xaml.cs">
       <DependentUpon>ResultsSummaryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">

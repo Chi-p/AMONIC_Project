@@ -1,5 +1,5 @@
 ﻿using DesktopApp.Entities;
-using DesktopApp.Page;
+using DesktopApp.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +45,20 @@ namespace DesktopApp.Windows
             {
                 Close();
             }
+        }
+
+        private void MIResultsSummary_Click(object sender, RoutedEventArgs e)
+        {
+            var page = AppData.MainFrame.Content as Page;
+            if (page is DetailedResultsPage)
+                AppData.MainFrame.Navigate(new ResultsSummaryPage());
+        }
+
+        private void MIDetailedResults_Click(object sender, RoutedEventArgs e)
+        {
+            var page = AppData.MainFrame.Content as Page;
+            if (page is ResultsSummaryPage)
+                AppData.MainFrame.Navigate(new DetailedResultsPage());
         }
     }
 }
